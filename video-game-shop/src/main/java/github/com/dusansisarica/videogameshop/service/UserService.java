@@ -6,6 +6,8 @@ import github.com.dusansisarica.videogameshop.dto.UserDto;
 import github.com.dusansisarica.videogameshop.model.Role;
 import github.com.dusansisarica.videogameshop.model.User;
 import github.com.dusansisarica.videogameshop.repository.UserRepository;
+import jakarta.mail.MessagingException;
+import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,6 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -25,14 +28,31 @@ public class UserService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private RoleService roleService;
+    @Autowired
+    private EmailService emailService;
 
-    public User save(RegistrationDto registrationDto){
+    public User save(RegistrationDto registrationDto, String siteUrl) throws MessagingException, UnsupportedEncodingException {
         User newUser = new User(passwordEncoder.encode(registrationDto.passwordFirst), registrationDto.email, false);
         List<Role> roles = new ArrayList<>();
         roles.add(roleService.findByName("ROLE_USER"));
         newUser.setRoles(roles);
+        String randomCode = RandomString.make(64);
+        newUser.setVerificationCode(randomCode);
         userRepository.save(newUser);
+        emailService.sendVerificationEmail(newUser, siteUrl);
         return newUser;
+    }
+
+    public boolean verify(String verificationCode) {
+        User user = userRepository.findByVerificationCode(verificationCode);
+        if (user == null || user.isVerified()) {
+            return false;
+        } else {
+            user.setVerificationCode(null);
+            user.setVerified(true);
+            userRepository.save(user);
+            return true;
+        }
     }
 
     public boolean emailExists(String email){

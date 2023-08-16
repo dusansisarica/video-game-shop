@@ -16,7 +16,8 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
-
+    @Column(name = "verification_code", length = 64)
+    private String verificationCode;
     @Column
     private String password;
     @Column
