@@ -2,13 +2,17 @@ package github.com.dusansisarica.videogameshop.service;
 
 import github.com.dusansisarica.videogameshop.dto.LoginDto;
 import github.com.dusansisarica.videogameshop.dto.RegistrationDto;
+import github.com.dusansisarica.videogameshop.dto.UserDetailDto;
 import github.com.dusansisarica.videogameshop.dto.UserDto;
+import github.com.dusansisarica.videogameshop.mapper.UserDtoMapper;
+import github.com.dusansisarica.videogameshop.model.Address;
 import github.com.dusansisarica.videogameshop.model.Role;
 import github.com.dusansisarica.videogameshop.model.User;
 import github.com.dusansisarica.videogameshop.repository.UserRepository;
 import jakarta.mail.MessagingException;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,8 +34,10 @@ public class UserService implements UserDetailsService {
     private RoleService roleService;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private UserDtoMapper userDtoMapper;
 
-    public User save(RegistrationDto registrationDto, String siteUrl) throws MessagingException, UnsupportedEncodingException {
+    public UserDto save(RegistrationDto registrationDto, String siteUrl) throws MessagingException, UnsupportedEncodingException {
         User newUser = new User(passwordEncoder.encode(registrationDto.passwordFirst), registrationDto.email, false);
         List<Role> roles = new ArrayList<>();
         roles.add(roleService.findByName("ROLE_USER"));
@@ -40,7 +46,7 @@ public class UserService implements UserDetailsService {
         newUser.setVerificationCode(randomCode);
         userRepository.save(newUser);
         emailService.sendVerificationEmail(newUser, siteUrl);
-        return newUser;
+        return userDtoMapper.fromModeltoDTO(newUser);
     }
 
     public boolean verify(String verificationCode) {
@@ -80,5 +86,15 @@ public class UserService implements UserDetailsService {
         if (user == null) throw new UsernameNotFoundException(String.format("No user found with email '%s'.", email));
         else return user;
 
+    }
+
+    public UserDto changeDetails(UserDetailDto userDetail) {
+        User user = userRepository.findByEmail(userDetail.email);
+        user.setName(userDetail.name);
+        user.setSurname(userDetail.surname);
+        Address address = new Address(userDetail.address.address, userDetail.address.city, userDetail.address.country);
+        user.setAddress(address);
+        userRepository.save(user);
+        return userDtoMapper.fromModeltoDTO(user);
     }
 }

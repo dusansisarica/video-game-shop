@@ -1,10 +1,8 @@
 package github.com.dusansisarica.videogameshop.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +18,7 @@ public class Address {
     public Address() {
     }
 
-    public Address(Integer id, String address, String city, String country) {
-        this.id = id;
+    public Address(String address, String city, String country) {
         this.address = address;
         this.city = city;
         this.country = country;

@@ -22,7 +22,7 @@ public class RegistrationController {
     private UserService userService;
 
     @PostMapping(consumes = "application/json")
-    public ResponseEntity<User> saveUser(@RequestBody RegistrationDto registrationDto, HttpServletRequest request) throws UnsupportedEncodingException, InterruptedException, MessagingException {
+    public ResponseEntity<UserDto> saveUser(@RequestBody RegistrationDto registrationDto, HttpServletRequest request) throws UnsupportedEncodingException, InterruptedException, MessagingException {
         if (!registrationDto.passwordFirst.equals(registrationDto.passwordSecond))
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (userService.emailExists(registrationDto.email)){

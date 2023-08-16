@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity(name = "users")
+@Entity(name="users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +30,15 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id"))
     private List<Role> roles;
 
+    @Column
+    private String name;
+    @Column
+    private String surname;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
     public User(){}
 
     public User(int ID, String password, String email) {
@@ -44,6 +53,14 @@ public class User implements UserDetails {
         this.verified = verified;
     }
 
+    public User(Integer ID, String verificationCode, String password, String email, boolean verified, List<Role> roles) {
+        this.ID = ID;
+        this.verificationCode = verificationCode;
+        this.password = password;
+        this.email = email;
+        this.verified = verified;
+        this.roles = roles;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
