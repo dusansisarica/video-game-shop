@@ -41,7 +41,7 @@ public class LoginController {
 
         // Kreiraj token za tog korisnika
         User user = (User) authentication.getPrincipal();
-//        if (!user.isActivated()) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        if (!user.isVerified()) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         String jwt = jwtUtil.generateToken(user.getEmail());
         int expiresIn = jwtUtil.getExpiredIn();
 
