@@ -82,6 +82,7 @@ public class ApplicationSecurity {
         http.exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint);
         http.authorizeRequests().requestMatchers("/api/registration").permitAll()
                 .requestMatchers("/api/auth/login").permitAll()
+
                 // /h2-console/** ako se koristi H2 baza)// /api/foo
                 // ukoliko ne zelimo da koristimo @PreAuthorize anotacije nad metodama kontrolera, moze se iskoristiti hasRole() metoda da se ogranici
                 // koji tip korisnika moze da pristupi odgovarajucoj ruti. Npr. ukoliko zelimo da definisemo da ruti 'admin' moze da pristupi
@@ -114,6 +115,7 @@ public class ApplicationSecurity {
         // Dozvoljena POST metoda na ruti /auth/login, za svaki drugi tip HTTP metode greska je 401 Unauthorized
         return (web) -> web.ignoring().requestMatchers(HttpMethod.POST, "/api/auth/login")
                 .requestMatchers(HttpMethod.POST, "/api/registration")
+                .requestMatchers(HttpMethod.GET, "/api/games")
                 .requestMatchers("/api/registration/verify")
                 // Ovim smo dozvolili pristup statickim resursima aplikacije
                 .requestMatchers(HttpMethod.GET, "/", "/webjars/*", "/*.html", "favicon.ico",

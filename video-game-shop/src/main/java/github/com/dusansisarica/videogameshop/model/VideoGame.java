@@ -40,4 +40,6 @@ public class VideoGame {
     private Set<Genre> genres;
     @Column
     private boolean deleted;
+    @Column
+    private String image;
 }

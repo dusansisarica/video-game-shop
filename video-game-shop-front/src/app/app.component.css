@@ -1,0 +1,12 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of the viewport */
+  }
+  
+  /* Content area with a minimum height of the viewport */
+  .content {
+    flex: 1;
+    min-height: calc(100vh - 60px); /* Subtract the footer height */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  }

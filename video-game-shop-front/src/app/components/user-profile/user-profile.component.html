@@ -1,0 +1,14 @@
+<main>
+    <section class="sidebar">
+      <!-- Sidebar content with category links -->
+      <ul>
+        <li><a routerLink="details">My Profile</a></li>
+        <li><a routerLink="wish-list">Wish List</a></li>
+        <li><a routerLink="previous-orders">Previous Orders</a></li>
+        <li><a routerLink="comments">Comments</a></li>
+      </ul>
+    </section>
+    <section class="content">
+      <router-outlet></router-outlet> <!-- This is where child components will be inserted -->
+    </section>
+  </main>

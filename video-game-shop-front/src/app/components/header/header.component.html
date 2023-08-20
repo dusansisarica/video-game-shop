@@ -1,0 +1,13 @@
+<header>
+  <mat-toolbar>
+   <a href="/" text-decoration="none"> <h1>My Application</h1></a>
+    <div class="nav">
+      <div class="spacer"></div>
+      <button *ngIf="!isLoggedIn()" (click)="login()" mat-stroked-button>Login</button>
+      <button *ngIf="!isLoggedIn()"(click)="register()" mat-stroked-button>Register</button>
+      <button *ngIf="isUser()" (click)="myProfile()" mat-stroked-button>Moj Profil</button>
+
+    </div>
+  </mat-toolbar>
+
+</header>

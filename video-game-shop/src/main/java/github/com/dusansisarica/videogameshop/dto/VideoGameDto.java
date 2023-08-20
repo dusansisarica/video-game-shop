@@ -21,4 +21,5 @@ public class VideoGameDto {
     public LocalDateTime release_date;
     public Set<Platform> platforms;
     public Set<Genre> genres;
+    public String image;
 }

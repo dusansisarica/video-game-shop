@@ -24,7 +24,7 @@ public class VideoGameController {
     private VideoGameService videoGameService;
 
     @GetMapping()
-    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
     public ResponseEntity<List<VideoGameDto>> findAll(){
         return new ResponseEntity<>(videoGameService.findAll(), HttpStatus.OK);
     }

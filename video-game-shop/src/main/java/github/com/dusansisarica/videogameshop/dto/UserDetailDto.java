@@ -10,4 +10,5 @@ public class UserDetailDto {
     public String name;
     public String surname;
     public AddressDto address;
+    public String jwt;
 }

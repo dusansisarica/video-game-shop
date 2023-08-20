@@ -4,6 +4,7 @@ import github.com.dusansisarica.videogameshop.dto.LoginDto;
 import github.com.dusansisarica.videogameshop.dto.RegistrationDto;
 import github.com.dusansisarica.videogameshop.dto.UserDetailDto;
 import github.com.dusansisarica.videogameshop.dto.UserDto;
+import github.com.dusansisarica.videogameshop.mapper.AddressDtoMapper;
 import github.com.dusansisarica.videogameshop.mapper.UserDtoMapper;
 import github.com.dusansisarica.videogameshop.model.Address;
 import github.com.dusansisarica.videogameshop.model.Role;
@@ -36,6 +37,8 @@ public class UserService implements UserDetailsService {
     private EmailService emailService;
     @Autowired
     private UserDtoMapper userDtoMapper;
+    @Autowired
+    private AddressDtoMapper addressDtoMapper;
 
     public UserDto save(RegistrationDto registrationDto, String siteUrl) throws MessagingException, UnsupportedEncodingException {
         User newUser = new User(passwordEncoder.encode(registrationDto.passwordFirst), registrationDto.email, false);
@@ -44,6 +47,7 @@ public class UserService implements UserDetailsService {
         newUser.setRoles(roles);
         String randomCode = RandomString.make(64);
         newUser.setVerificationCode(randomCode);
+        newUser.setAddress(new Address("", "", ""));
         userRepository.save(newUser);
         emailService.sendVerificationEmail(newUser, siteUrl);
         return userDtoMapper.fromModeltoDTO(newUser);
@@ -72,6 +76,16 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByEmailAndPassword(loginDto.email, loginDto.password);
         if (user == null || !user.isVerified()) return null;
         return user;
+    }
+
+    public UserDetailDto getUserDetails(String email){
+        User user = userRepository.findByEmail(email);
+        UserDetailDto userDto = new UserDetailDto();
+        userDto.address = addressDtoMapper.fromModeltoDTO(user.getAddress());
+        userDto.email = user.getEmail();
+        userDto.name = user.getName();
+        userDto.surname = user.getSurname();
+        return userDto;
     }
 
 //    @Override
