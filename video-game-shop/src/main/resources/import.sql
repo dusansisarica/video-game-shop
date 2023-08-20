@@ -1,8 +1,11 @@
 insert into address (address, city, country) VALUES ('Zeleznicka 3', 'Novi Sad', 'Serbia');
-insert into users (password, email, verified, address_id, name, surname) VALUES ('$2a$12$h/HXDzJgpT4ff5EtiPN/UejwWLe/WfyFx/lsHmBe/lnuAYyqxtYEC', 'dsisarica40@gmail.com', true, 1, 'Dusan', 'Sisarica');
+insert into address (address, city, country) VALUES ('Zeleznicka 3', 'Novi Sad', 'Serbia');
+insert into users (password, email, verified, address_id, name, surname) VALUES ('$2a$12$h/HXDzJgpT4ff5EtiPN/UejwWLe/WfyFx/lsHmBe/lnuAYyqxtYEC', 'dsisarica40@gmail.com', true, 1, 'DusanAdmin', 'Sisarica');
+insert into users (password, email, verified, address_id, name, surname) VALUES ('$2a$12$h/HXDzJgpT4ff5EtiPN/UejwWLe/WfyFx/lsHmBe/lnuAYyqxtYEC', 'dusansisarica@gmail.com', true, 2, 'DusanUser', 'Sisarica');
 insert into role (name) VALUES ('ROLE_ADMIN');
 insert into role (name) VALUES ('ROLE_USER');
 insert into user_role (user_id, role_id) VALUES (1,1);
+insert into user_role (user_id, role_id) VALUES (2,2);
 insert into video_game (title, description, price, release_date, deleted, image) VALUES ('Starcraft 2 Battlechest (WoL/HotS/LotV)', '', 1399.99, '10/08/2023', false, 'starcraft2.png');
 insert into video_game (title, description, price, release_date, deleted, image) VALUES ('Kingdom Come Deliverance', 'Jako dobra uf', 6499, '10/08/2023', false, 'kingdomcomedeliverance.png');
 insert into video_game (title, description, price, release_date, deleted, image) VALUES ('Sonic Mania Plus', 'Jako dobra uf', 3999, '10/08/2023', false, 'sonicmaniaplus.png');

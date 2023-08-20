@@ -18,4 +18,7 @@ public class WishList {
 
     @Column
     private Integer userId;
+
+    @Column
+    private boolean deleted;
 }

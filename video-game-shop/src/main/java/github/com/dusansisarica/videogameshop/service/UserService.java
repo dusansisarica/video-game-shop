@@ -111,4 +111,8 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
         return userDtoMapper.fromModeltoDTO(user);
     }
+
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
 }
