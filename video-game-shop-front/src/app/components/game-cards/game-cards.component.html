@@ -1,0 +1,10 @@
+<div class="games">
+    <div class="game-card" *ngFor="let item of games">
+      <img src="../../../assets/games/{{item.image}}" alt="{{ item.title }}">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <button (click)="gameDetails(item.id)">More Details</button>
+      <button (click)="addToWishList(item.id)">Wish List</button>
+      <button (click)="buy(item.id)">Buy</button>
+    </div>
+  </div>

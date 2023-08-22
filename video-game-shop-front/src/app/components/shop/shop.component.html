@@ -1,0 +1,31 @@
+<div *ngIf="shop">
+    <h2>{{ shop.name }}</h2>
+    <p>Location: {{ shop.address.address }}, {{ shop.address.city }}, {{ shop.address.country }}</p>
+  </div>
+  
+  <div *ngIf="shop.items">
+    <h3>Available Games</h3>
+    <!-- <div class="games">
+        <div class="game-card" *ngFor="let item of shop.items">
+          <img src="../../../assets/games/{{item.game.image}}" alt="{{ item.game.title }}">
+          <h3>{{ item.game.title }}</h3>
+          <p>{{ item.game.description }}</p>
+          <button (click)="gameDetails(item.game.id)">More Details</button>
+          <button (click)="addToWishList(item.game.id)">Wish List</button>
+          <button (click)="buy(item.gameId)">Buy</button>
+        </div>
+      </div> -->
+      <app-game-cards [games] = "gameItems"></app-game-cards>
+    <!-- <ul>
+      <li *ngFor="let item of shop.items">
+        <img src="../../../assets/games/{{item.game.image}}">
+        <h4>{{ item.game.title }}</h4>
+        <h4>{{ item.game.description }}</h4>
+        <p>{{ item.quantity }}</p>
+        <button (click)="buy(item.gameId)">Buy</button>
+      </li>
+    </ul> -->
+  </div>
+  
+  <div id="map" style="height: 400px;"></div>
+  
