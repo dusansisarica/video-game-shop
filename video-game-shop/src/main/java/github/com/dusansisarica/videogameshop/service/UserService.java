@@ -47,7 +47,7 @@ public class UserService implements UserDetailsService {
         newUser.setRoles(roles);
         String randomCode = RandomString.make(64);
         newUser.setVerificationCode(randomCode);
-        newUser.setAddress(new Address("", "", ""));
+        newUser.setAddress(new Address("", "", "", null, null));
         userRepository.save(newUser);
         emailService.sendVerificationEmail(newUser, siteUrl);
         return userDtoMapper.fromModeltoDTO(newUser);
@@ -106,7 +106,7 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByEmail(userDetail.email);
         user.setName(userDetail.name);
         user.setSurname(userDetail.surname);
-        Address address = new Address(userDetail.address.address, userDetail.address.city, userDetail.address.country);
+        Address address = new Address(userDetail.address.address, userDetail.address.city, userDetail.address.country, userDetail.address.longitude, userDetail.address.latitude);
         user.setAddress(address);
         userRepository.save(user);
         return userDtoMapper.fromModeltoDTO(user);

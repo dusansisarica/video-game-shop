@@ -25,6 +25,8 @@ import { PreviousOrdersComponent } from './components/previous-orders/previous-o
 import { UserCommentsComponent } from './components/user-comments/user-comments.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { GameCardsComponent } from './components/game-cards/game-cards.component';
 
 
 
@@ -45,6 +47,8 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
     PreviousOrdersComponent,
     UserCommentsComponent,
     GameDetailsComponent,
+    ShopComponent,
+    GameCardsComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,8 @@ public class ShopService {
     private GameQuantityRepository gameQuantityRepository;
     @Autowired
     private GameQuantityDtoMapper gameQuantityDtoMapper;
+    @Autowired
+    private VideoGameService videoGameService;
 
 
     public ShopDto save(ShopDto shopDto) {
@@ -35,8 +37,18 @@ public class ShopService {
         Shop shop = shopRepository.findById(id).orElse(null);
         if (shop == null) return null;
         ShopDto dto = shopDtoMapper.fromModeltoDTO(shop);
-        dto.setItems(gameQuantityDtoMapper.fromModeltoDTOList(gameQuantityRepository.findAllByShopId(shop.getId())));
-        return shopDtoMapper.fromModeltoDTO(shop);
+        dto.setItems(makeItemsForShop(dto.id));
+        return dto;
+    }
+
+    public List<GameQuantityDto> makeItemsForShop(Integer shopId){
+        List<GameQuantityDto> items = gameQuantityDtoMapper.fromModeltoDTOList(gameQuantityRepository.findAllByShopId(shopId));
+        List<GameQuantityDto> returnVal = new ArrayList<>();
+        for(GameQuantityDto item : items) {
+            item.setGame(videoGameService.findById(item.gameId));
+            returnVal.add(item);
+        }
+        return returnVal;
     }
 
     public List<ShopDto> getAll() {

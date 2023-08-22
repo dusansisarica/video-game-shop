@@ -9,4 +9,6 @@ public class AddressDto {
     public String address;
     public String city;
     public String country;
+    public Double longitude;
+    public Double latitude;
 }

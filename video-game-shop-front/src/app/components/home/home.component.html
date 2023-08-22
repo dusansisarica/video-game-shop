@@ -4,14 +4,6 @@
   </section>
   <section class="content">
     <h2>Available Games</h2>
-    <div class="games">
-      <div class="game-card" *ngFor="let game of featuredGames">
-        <img src="../../../assets/games/{{game.image}}" alt="{{ game.name }}">
-        <h3>{{ game.name }}</h3>
-        <p>{{ game.description }}</p>
-        <button (click)="gameDetails(game.id)">More Details</button>
-        <button (click)="addToWishList(game.id)">Wish List</button>
-      </div>
-    </div>
+    <app-game-cards [games]="featuredGames"></app-game-cards>
   </section>
 </main>

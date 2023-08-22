@@ -1,8 +1,12 @@
 package github.com.dusansisarica.videogameshop.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,14 +18,20 @@ public class Address {
     private String city;
     @Column
     private String country;
+    @Column
+    private Double longitude;
+    @Column
+    private Double latitude;
 
     public Address() {
     }
 
-    public Address(String address, String city, String country) {
+    public Address(String address, String city, String country, Double longitude, Double latitude) {
         this.address = address;
         this.city = city;
         this.country = country;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
     public Integer getId() {

@@ -1,8 +1,8 @@
-insert into address (address, city, country) VALUES ('Zeleznicka 3', 'Novi Sad', 'Serbia');
-insert into address (address, city, country) VALUES ('Zeleznicka 3', 'Novi Sad', 'Serbia');
-insert into address (address, city, country) VALUES ('Zeleznicka 7', 'Novi Sad', 'Serbia');
-insert into address (address, city, country) VALUES ('Balzakova 1', 'Novi Sad', 'Serbia');
-insert into address (address, city, country) VALUES ('Mise Dimitrijevica 3', 'Novi Sad', 'Serbia');
+insert into address (address, city, country, longitude, latitude) VALUES ('Zeleznicka 3', 'Novi Sad', 'Serbia', 45.251624, 19.842497);
+insert into address (address, city, country, longitude, latitude) VALUES ('Zeleznicka 3', 'Novi Sad', 'Serbia', 45.251624, 19.842497);
+insert into address (address, city, country, longitude, latitude) VALUES ('Zeleznicka 7', 'Novi Sad', 'Serbia', 45.251009, 19.841845);
+insert into address (address, city, country, longitude, latitude) VALUES ('Balzakova 1', 'Novi Sad', 'Serbia', 45.240962338967634, 19.832409477210312);
+insert into address (address, city, country, longitude, latitude) VALUES ('Mise Dimitrijevica 3', 'Novi Sad', 'Serbia',45.24635146335202, 19.833262412655518);
 insert into users (password, email, verified, address_id, name, surname) VALUES ('$2a$12$h/HXDzJgpT4ff5EtiPN/UejwWLe/WfyFx/lsHmBe/lnuAYyqxtYEC', 'dsisarica40@gmail.com', true, 1, 'DusanAdmin', 'Sisarica');
 insert into users (password, email, verified, address_id, name, surname) VALUES ('$2a$12$h/HXDzJgpT4ff5EtiPN/UejwWLe/WfyFx/lsHmBe/lnuAYyqxtYEC', 'dusansisarica@gmail.com', true, 2, 'DusanUser', 'Sisarica');
 insert into role (name) VALUES ('ROLE_ADMIN');
