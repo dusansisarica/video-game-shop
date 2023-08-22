@@ -1,6 +1,7 @@
 package github.com.dusansisarica.videogameshop.controller;
 
 import github.com.dusansisarica.videogameshop.dto.RegistrationDto;
+import github.com.dusansisarica.videogameshop.dto.ShopDto;
 import github.com.dusansisarica.videogameshop.dto.UserDto;
 import github.com.dusansisarica.videogameshop.dto.VideoGameDto;
 import github.com.dusansisarica.videogameshop.model.VideoGame;
@@ -52,5 +53,6 @@ public class VideoGameController {
     public ResponseEntity<VideoGameDto> findById(@PathVariable("id") Integer id){
         return new ResponseEntity<>(videoGameService.findById(id), HttpStatus.OK);
     }
+
 
 }
