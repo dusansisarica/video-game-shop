@@ -24,7 +24,7 @@ public class VideoGameController {
     private VideoGameService videoGameService;
 
     @GetMapping()
-//    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
     public ResponseEntity<List<VideoGameDto>> findAll(){
         return new ResponseEntity<>(videoGameService.findAll(), HttpStatus.OK);
     }
@@ -45,6 +45,12 @@ public class VideoGameController {
     @DeleteMapping("/{id}")
     public ResponseEntity<List<VideoGameDto>> deleteById(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(videoGameService.deleteById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+    public ResponseEntity<VideoGameDto> findById(@PathVariable("id") Integer id){
+        return new ResponseEntity<>(videoGameService.findById(id), HttpStatus.OK);
     }
 
 }

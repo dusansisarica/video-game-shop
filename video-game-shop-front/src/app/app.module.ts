@@ -24,6 +24,7 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 import { PreviousOrdersComponent } from './components/previous-orders/previous-orders.component';
 import { UserCommentsComponent } from './components/user-comments/user-comments.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 
 
@@ -43,6 +44,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     WishListComponent,
     PreviousOrdersComponent,
     UserCommentsComponent,
+    GameDetailsComponent,
   ],
   imports: [
     BrowserModule,

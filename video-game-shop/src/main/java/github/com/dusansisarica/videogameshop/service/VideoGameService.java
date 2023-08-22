@@ -47,4 +47,8 @@ public class VideoGameService {
         videoGameRepository.save(videoGame);
         return videoGameDtoMapper.fromModeltoDTOList(videoGameRepository.findAllByDeletedFalse());
     }
+
+    public VideoGameDto findById(Integer id) {
+        return videoGameDtoMapper.fromModeltoDTO(videoGameRepository.findById(id).orElse(null));
+    }
 }

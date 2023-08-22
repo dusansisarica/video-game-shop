@@ -2,6 +2,7 @@ package github.com.dusansisarica.videogameshop.controller;
 
 import github.com.dusansisarica.videogameshop.dto.VideoGameDto;
 import github.com.dusansisarica.videogameshop.dto.WishListDto;
+import github.com.dusansisarica.videogameshop.dto.WishListProductsDto;
 import github.com.dusansisarica.videogameshop.security.util.JwtTokenUtil;
 import github.com.dusansisarica.videogameshop.service.WishListService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/wish-list")
+@CrossOrigin
 public class WishListController {
     @Autowired
     private WishListService wishListService;
@@ -34,7 +36,7 @@ public class WishListController {
 
     @PreAuthorize("hasRole('USER')")
     @GetMapping()
-    public ResponseEntity<List<WishListDto>> getAllForUser(HttpServletRequest request) {
+    public ResponseEntity<List<WishListProductsDto>> getAllForUser(HttpServletRequest request) {
         return new ResponseEntity<>(wishListService.getAllForUser(jwtTokenUtil.getEmailFromToken(jwtTokenUtil.getToken(request))), HttpStatus.OK);
     }
 

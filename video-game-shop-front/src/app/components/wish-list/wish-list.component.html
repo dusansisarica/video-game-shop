@@ -1,1 +1,11 @@
-<p>wish-list works!</p>
+<section class="content">
+    <h2>Available Games</h2>
+    <div class="products">
+      <div class="products-card" *ngFor="let product of products">
+        <img src="../../../assets/games/{{product.product.image}}" alt="{{ product.product.name }}">
+        <h3>{{ product.product.name }}</h3>
+        <p>{{ product.product.description }}</p>
+        <button (click)="removeProductFromWishList(product.id)">Remove</button>
+      </div>
+    </div>
+  </section>

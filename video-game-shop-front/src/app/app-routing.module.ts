@@ -9,6 +9,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { PreviousOrdersComponent } from './components/previous-orders/previous-orders.component';
 import { UserCommentsComponent } from './components/user-comments/user-comments.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 const routes: Routes = [
   { path: '', component: FeaturedGamesComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
     { path: 'previous-orders', component: PreviousOrdersComponent },
     { path: 'comments', component: UserCommentsComponent }
   ]},
+  { path: 'games/:id', component: GameDetailsComponent }
 ];
 
 @NgModule({
