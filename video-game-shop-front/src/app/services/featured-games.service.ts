@@ -16,4 +16,8 @@ export class FeaturedGamesService {
     return this.http.get(this.baseUrl + 'api/games');
   }
 
+  public getGameById(id : any) : Observable<any> {
+    return this.http.get(this.baseUrl + `api/games/${id}`);
+  }
+
 }

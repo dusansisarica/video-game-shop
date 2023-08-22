@@ -6,6 +6,7 @@
       <button *ngIf="!isLoggedIn()" (click)="login()" mat-stroked-button>Login</button>
       <button *ngIf="!isLoggedIn()"(click)="register()" mat-stroked-button>Register</button>
       <button *ngIf="isUser()" (click)="myProfile()" mat-stroked-button>Moj Profil</button>
+      <button *ngIf="isLoggedIn()"(click)="logout()" mat-stroked-button>Odjavi se</button>
 
     </div>
   </mat-toolbar>

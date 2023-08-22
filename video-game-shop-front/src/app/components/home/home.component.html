@@ -9,7 +9,8 @@
         <img src="../../../assets/games/{{game.image}}" alt="{{ game.name }}">
         <h3>{{ game.name }}</h3>
         <p>{{ game.description }}</p>
-        <button>Buy Now</button>
+        <button (click)="gameDetails(game.id)">More Details</button>
+        <button (click)="addToWishList(game.id)">Wish List</button>
       </div>
     </div>
   </section>

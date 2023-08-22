@@ -1,0 +1,7 @@
+<div class="game-details">
+    <h2>{{ game?.name }}</h2>
+    <img src="../../../assets/games/{{game.image}}" [alt]="game?.name">
+    <p>Description: {{ game?.description }}</p>
+    <p>Price: {{ game?.price | currency }}</p>
+  </div>
+  

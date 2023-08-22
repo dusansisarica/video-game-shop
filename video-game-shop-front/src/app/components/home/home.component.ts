@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FeaturedGamesService } from 'src/app/services/featured-games.service';
+import { WishListService } from 'src/app/services/wish-list.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { FeaturedGamesService } from 'src/app/services/featured-games.service';
 export class HomeComponent implements OnInit {
 
   public featuredGames : any;
-  constructor(private router: Router, private featuredGamesService: FeaturedGamesService) { }
+  constructor(private router: Router, private featuredGamesService: FeaturedGamesService,
+    private wishListService : WishListService) { }
 
   ngOnInit(): void {
     this.getAllGames();
@@ -24,6 +26,14 @@ export class HomeComponent implements OnInit {
     }, error => {
       alert("Error");
     })
+  }
+
+  public addToWishList(id : any): void {
+    this.wishListService.addToWishList(id).subscribe()
+  }
+
+  public gameDetails(id : any): void {
+    this.router.navigate([`games/${id}`]);
   }
 
 }
