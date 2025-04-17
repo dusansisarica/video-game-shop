@@ -1,6 +1,7 @@
 package github.com.dusansisarica.videogameshop.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity(name="users")
+@Entity(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +28,7 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id"))
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles;
 
     @Column
@@ -39,7 +40,24 @@ public class User implements UserDetails {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    public User(){}
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
+
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
+
+    @Column
+    private boolean deleted = false;
+
+    public User() {
+    }
 
     public User(int ID, String password, String email) {
         this.ID = ID;

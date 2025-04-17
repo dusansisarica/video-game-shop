@@ -10,7 +10,7 @@ import Swiper from 'swiper';
 })
 export class FeaturedGamesComponent implements OnInit {
 
-  public featuredGames : any;
+  public featuredGames: any;
   activeIndex = 0;
   currentImage = '';
   private mySwiper!: Swiper;
@@ -28,12 +28,12 @@ export class FeaturedGamesComponent implements OnInit {
       spaceBetween: 25,
       keyboard: true,
       freeMode: true,
-      
+
     });
   }
 
   private getAllGames(): void {
-    this.featuredGamesService.getAllGames().subscribe(data => {
+    this.featuredGamesService.getAllGames(1).subscribe(data => {
       this.featuredGames = data;
       console.log("A")
 
@@ -47,7 +47,7 @@ export class FeaturedGamesComponent implements OnInit {
     setInterval(() => {
       this.activeIndex = (this.activeIndex + 1) % this.featuredGames.length;
       this.currentImage = this.featuredGames[this.activeIndex].image;
-    }, 5000); // Change image every 5 seconds
+    }, 3000);
   }
 
 

@@ -1,12 +1,17 @@
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Minimum height of the viewport */
+    min-height: 100vh; 
   }
   
   /* Content area with a minimum height of the viewport */
   .content {
-    flex: 1;
-    min-height: calc(100vh - 60px); /* Subtract the footer height */
-    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    /* flex: 1;
+    min-height: calc(100vh - 60px); Subtract the footer height
+    overflow-y: auto; Enable vertical scrolling when content overflows */
+  }
+
+  nz-footer {
+    background: #001529;
+    color: #fff;
   }

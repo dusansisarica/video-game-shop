@@ -1,10 +1,10 @@
 <div *ngIf="shop">
     <h2>{{ shop.name }}</h2>
-    <p>Location: {{ shop.address.address }}, {{ shop.address.city }}, {{ shop.address.country }}</p>
+    <p>Lokacija: {{ shop.address.address }}, {{ shop.address.city }}, {{ shop.address.country }}</p>
   </div>
   
   <div *ngIf="shop.items">
-    <h3>Available Games</h3>
+    <h3>Dostupne igrice</h3>
     <!-- <div class="games">
         <div class="game-card" *ngFor="let item of shop.items">
           <img src="../../../assets/games/{{item.game.image}}" alt="{{ item.game.title }}">

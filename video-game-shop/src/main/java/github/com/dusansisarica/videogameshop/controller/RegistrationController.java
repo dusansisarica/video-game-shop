@@ -4,14 +4,14 @@ import github.com.dusansisarica.videogameshop.dto.RegistrationDto;
 import github.com.dusansisarica.videogameshop.dto.UserDto;
 import github.com.dusansisarica.videogameshop.model.User;
 import github.com.dusansisarica.videogameshop.service.UserService;
-import jakarta.mail.MessagingException;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.time.Clock;
 
@@ -25,7 +25,7 @@ public class RegistrationController {
     public ResponseEntity<UserDto> saveUser(@RequestBody RegistrationDto registrationDto, HttpServletRequest request) throws UnsupportedEncodingException, InterruptedException, MessagingException {
         if (!registrationDto.passwordFirst.equals(registrationDto.passwordSecond))
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        if (userService.emailExists(registrationDto.email)){
+        if (userService.emailExists(registrationDto.email)) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(userService.save(registrationDto, getSiteURL(request)), HttpStatus.CREATED);
@@ -35,6 +35,7 @@ public class RegistrationController {
         String siteURL = request.getRequestURL().toString();
         return siteURL.replace(request.getServletPath(), "");
     }
+
     @GetMapping("/verify")
     public String verifyUser(@Param("code") String code) {
         if (userService.verify(code)) {

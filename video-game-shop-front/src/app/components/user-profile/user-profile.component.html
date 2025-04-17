@@ -1,14 +1,50 @@
 <main>
-    <section class="sidebar">
-      <!-- Sidebar content with category links -->
-      <ul>
-        <li><a routerLink="details">My Profile</a></li>
-        <li><a routerLink="wish-list">Wish List</a></li>
-        <li><a routerLink="previous-orders">Previous Orders</a></li>
-        <li><a routerLink="comments">Comments</a></li>
-      </ul>
-    </section>
-    <section class="content">
-      <router-outlet></router-outlet> <!-- This is where child components will be inserted -->
-    </section>
-  </main>
+  <section class="sidebar">
+    <!-- Sidebar content with category links -->
+    <ul *ngIf="isUser()" nz-menu nzMode="inline">
+      <li nz-menu-item><a routerLink="details">Moj profil</a></li>
+      <li nz-menu-item><a routerLink="wish-list">Igrice koje mi se sviđaju</a></li>
+      <li nz-menu-item><a routerLink="previous-orders">Moje porudžbine</a></li>
+      <li nz-menu-item><a routerLink="comments">Moji komentari</a></li>
+    </ul>
+    <ul *ngIf="isAdmin()" nz-menu nzMode="inline">
+      <li nz-menu-item nzTitle="Video Game Settings">
+        <a routerLink="game-settings">Upravljanje igricama</a>
+      </li>
+      <li nz-menu-item nzTitle="Shop Settings">
+        <a routerLink="shop-settings">Upravljanje prodavnicama</a>
+      </li>
+      <li nz-menu-item nzTitle="User Settings">
+        <a routerLink="user-settings">Upravljanje korisnicima</a>
+      </li>
+
+    </ul>
+    <ul *ngIf="isStaff()" nz-menu nzMode="inline">
+      <li nz-menu-item nzTitle="Inventory Settings"><a routerLink="inventory-settings">Skladište</a>
+      </li>
+      <li nz-menu-item nzTitle="Order Settings">
+        <a routerLink="order-settings">Porudžbine</a>
+      </li>
+    </ul>
+    <ul *ngIf="isManager()" nz-menu nzMode="inline">
+      <li nz-menu-item nzTitle="Central Inventory"><a routerLink="central-inventory">Glavno skladište</a>
+      </li>
+      <li nz-menu-item nzTitle="Order Settings">
+        <a routerLink="central-user-orders">Porudžbine</a>
+      </li>
+      <li nz-menu-item nzTitle="Review Settings">
+        <a routerLink="review-settings">Upravljanje komentarima</a>
+      </li>
+      <li nz-menu-item nzTitle="Review Settings">
+        <a routerLink="shop-inventory">Skladište prodavnica</a>
+      </li>
+      <li nz-menu-item nzTitle="User Settings">
+        <a routerLink="user-settings">Upravljanje korisnicima</a>
+      </li>
+
+    </ul>
+  </section>
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</main>

@@ -25,12 +25,13 @@ public class WishListService {
     @Autowired
     private VideoGameService videoGameService;
 
-    private Integer getUserId(String email){
+    private Integer getUserId(String email) {
         return userService.findByEmail(email).getID();
     }
-    public WishListDto save(WishListDto dto, String email){
+
+    public WishListDto save(WishListDto dto, String email) {
         dto.userId = getUserId(email);
-        wishListRepository.save(wishListDtoMapper.fromDTOtoModel(dto));
+        wishListRepository.save(WishListDtoMapper.fromDTOtoModel(dto));
         return dto;
     }
 
@@ -48,12 +49,12 @@ public class WishListService {
 
     public List<WishListDto> deleteById(Integer id) {
         WishList wishList = wishListRepository.findById(id).orElse(null);
-        if (wishList == null){
-            return wishListDtoMapper.fromModeltoDTOList(wishListRepository.findAll());
+        if (wishList == null) {
+            return WishListDtoMapper.fromModeltoDTOList(wishListRepository.findAll());
         }
         wishList.setDeleted(true);
         wishListRepository.save(wishList);
-        return wishListDtoMapper.fromModeltoDTOList(wishListRepository.findAllByUserIdAndDeletedFalse(wishList.getUserId()));
+        return WishListDtoMapper.fromModeltoDTOList(wishListRepository.findAllByUserIdAndDeletedFalse(wishList.getUserId()));
 
     }
 

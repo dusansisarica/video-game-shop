@@ -3,10 +3,7 @@ package github.com.dusansisarica.videogameshop.security.auth;
 import github.com.dusansisarica.videogameshop.model.User;
 import github.com.dusansisarica.videogameshop.security.util.JwtTokenUtil;
 import io.jsonwebtoken.ExpiredJwtException;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +16,17 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {
     private final JwtTokenUtil tokenUtils;
 
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     protected final Log LOGGER = LogFactory.getLog(getClass());
 

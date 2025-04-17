@@ -1,39 +1,5 @@
-<!-- <section class="featured-games">
-  <h2 class="section-title">Featured Games</h2>
-  <div class="game-carousel">
-    <div class="game-card" *ngFor="let game of featuredGames; let i = index" [class.active]="i === activeIndex">
-      <img class="game-image" src="../assets/games/{{game.image}}" alt="{{ game.title }}">
-      <div class="game-info">
-        <h3>{{ game.title }}</h3>
-        <p>{{ game.description }}</p>
-        <button mat-button color="primary">Buy Now</button>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 <section class="featured-games">
   <div class="background-image" [style.background-image]="'url(../../../assets/games/' + currentImage + ')'"></div>
   <div class="game-info-container">
-    <!-- <div class="game-info" *ngFor="let game of featuredGames; let i = index" [class.active]="i === activeIndex">
-      <h3>{{ game.title }}</h3>
-      <p>{{ game.description }}</p>
-      <button mat-button color="primary">Buy Now</button>
-    </div> -->
   </div>
 </section>
-
-  <!-- <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" *ngFor="let game of featuredGames">
-        <img class="game-image" src="../assets/games/{{game.image}}" alt="{{ game.title }}">
-        <div class="game-info">
-          <h3>{{ game.title }}</h3>
-          <p>{{ game.description }}</p>
-          <button mat-button color="primary">Buy Now</button>
-        </div>
-        
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div> -->

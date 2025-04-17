@@ -12,4 +12,22 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+  isUser() {
+    return (localStorage.getItem("role") == "ROLE_USER")
+  }
+
+  isAdmin() {
+    return (localStorage.getItem("role") == "ROLE_ADMIN")
+  }
+
+  isStaff() {
+    return (localStorage.getItem("role") == "ROLE_STAFF")
+  }
+
+  isManager() {
+    return (localStorage.getItem("role") == "ROLE_MANAGER")
+  }
+
+
 }

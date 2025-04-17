@@ -17,7 +17,7 @@ public class WishListDtoMapper {
 
     @Autowired
     public WishListDtoMapper(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
+        WishListDtoMapper.modelMapper = modelMapper;
     }
 
     public static WishList fromDTOtoModel(WishListDto dto) {
@@ -28,9 +28,9 @@ public class WishListDtoMapper {
         return modelMapper.map(model, WishListDto.class);
     }
 
-    public static List<WishListDto> fromModeltoDTOList(List<WishList> modelList){
+    public static List<WishListDto> fromModeltoDTOList(List<WishList> modelList) {
         List<WishListDto> dto = new ArrayList<>();
-        for(WishList game : modelList){
+        for (WishList game : modelList) {
             dto.add(fromModeltoDTO(game));
         }
         return dto;

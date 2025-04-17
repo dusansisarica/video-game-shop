@@ -19,6 +19,7 @@ export class WishListComponent implements OnInit {
   private getAllWishListProducts(): void {
     this.wishListService.getAllProducts().subscribe(data => {
       this.products = data;
+      console.log(this.products)
     }, error => {
       alert("Error");
     })
@@ -27,7 +28,9 @@ export class WishListComponent implements OnInit {
   public removeProductFromWishList(id : any) {
     console.log(id)
     this.wishListService.removeProduct(id).subscribe(data => {
-      this.products = data;
+      this.getAllWishListProducts();
     })
   }
+
+
 }

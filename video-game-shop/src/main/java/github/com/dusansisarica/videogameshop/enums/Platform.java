@@ -1,6 +1,5 @@
 package github.com.dusansisarica.videogameshop.enums;
 
-import jakarta.persistence.Entity;
 
 public enum Platform {
     PC,

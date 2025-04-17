@@ -11,6 +11,7 @@ import { WishListService } from 'src/app/services/wish-list.service';
 export class HomeComponent implements OnInit {
 
   public featuredGames : any;
+  length! : any;
   constructor(private router: Router, private featuredGamesService: FeaturedGamesService,
     private wishListService : WishListService) { }
 
@@ -19,8 +20,9 @@ export class HomeComponent implements OnInit {
   }
 
   private getAllGames(): void {
-    this.featuredGamesService.getAllGames().subscribe(data => {
+    this.featuredGamesService.getFeaturedGames().subscribe(data => {
       this.featuredGames = data;
+      console.log(data)
       console.log("A")
 
     }, error => {
@@ -35,5 +37,7 @@ export class HomeComponent implements OnInit {
   public gameDetails(id : any): void {
     this.router.navigate([`games/${id}`]);
   }
+
+  
 
 }

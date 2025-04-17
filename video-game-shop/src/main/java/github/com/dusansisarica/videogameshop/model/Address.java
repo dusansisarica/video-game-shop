@@ -1,12 +1,16 @@
 package github.com.dusansisarica.videogameshop.model;
 
-import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,10 +18,9 @@ public class Address {
     private Integer id;
     @Column
     private String address;
-    @Column
-    private String city;
-    @Column
-    private String country;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
     @Column
     private Double longitude;
     @Column
@@ -26,10 +29,11 @@ public class Address {
     public Address() {
     }
 
-    public Address(String address, String city, String country, Double longitude, Double latitude) {
+
+
+    public Address(String address, City city, Double longitude, Double latitude) {
         this.address = address;
         this.city = city;
-        this.country = country;
         this.longitude = longitude;
         this.latitude = latitude;
     }
@@ -50,19 +54,11 @@ public class Address {
         this.address = address;
     }
 
-    public String getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(City city) {
         this.city = city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 }

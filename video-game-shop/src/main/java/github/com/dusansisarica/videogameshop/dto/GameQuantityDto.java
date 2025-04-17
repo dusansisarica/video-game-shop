@@ -12,6 +12,7 @@ public class GameQuantityDto {
     public Integer quantity;
     public Integer shopId;
     public VideoGameDto game;
+    public Integer reserved;
 
     public GameQuantityDto(Integer id, Integer gameId, Integer quantity, Integer shop) {
         this.id = id;
@@ -20,7 +21,8 @@ public class GameQuantityDto {
         this.shopId = shop;
     }
 
-    public GameQuantityDto(){}
+    public GameQuantityDto() {
+    }
 
     public GameQuantityDto(Integer id, Integer gameId, Integer quantity, Integer shopId, VideoGameDto game) {
         this.id = id;

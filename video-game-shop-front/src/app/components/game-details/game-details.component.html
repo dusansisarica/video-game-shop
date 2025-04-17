@@ -1,7 +1,226 @@
-<div class="game-details">
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Slika igre -->
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <div class="card border-0 shadow h-100">
+                    <img class="card-img-top img-fluid h-100 object-fit-cover" src="assets/games/{{game.image}}"
+                        alt="{{game.title}}" id="product-detail">
+                </div>
+            </div>
+
+            <!-- Detalji igre -->
+            <div class="col-lg-7">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h1 class="h2 mb-3">{{game.title}}</h1>
+                        <p class="h3 text-primary mb-4">{{game.price.price}} RSD</p>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <nz-rate [ngModel]="game.rating" nzDisabled></nz-rate>
+                            <div class="ms-2 text-muted">Ocena: {{game.rating.toFixed(2)}}</div>
+                        </div>
+
+                        <h6 class="fw-bold mb-2">Opis:</h6>
+                        <p class="mb-4 flex-grow-1">{{game.description}}</p>
+
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-2">Datum izlaska:</h6>
+                            <p class="text-muted mb-0">{{calculateDate()}}</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-2">Platforme:</h6>
+                            <ul class="list-unstyled">
+                                <li *ngFor="let platform of game.platforms" class="mb-1">{{platform}}</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-2">Žanrovi:</h6>
+                            <ul class="list-unstyled">
+                                <li *ngFor="let genre of game.genres" class="mb-1">{{genre}}</li>
+                            </ul>
+                        </div>
+
+                        <!-- Dugmad za akcije -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-auto">
+                            <a class="btn btn-success" *ngIf="isUser()" (click)="buy()">Dodaj u
+                                korpu</a>
+                            <a class="btn btn-success" *ngIf="isUser()" (click)="wishList()">Sviđa
+                                mi se</a>
+                            <button *ngIf="isGuest()" type="submit" class="btn btn-success btn-lg" name="submit"
+                                value="addtocard" (click)="showReviewsFunc()">Prikaži komentare</button>
+                            <button *ngIf="isGuest()" type="submit" class="btn btn-success btn-lg" name="submit"
+                                value="addtocard" (click)="showAvailableShopsFunc()">Proveri dostupnost</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dodatne opcije za prijavljene korisnike -->
+        <div class="row mt-4" *ngIf="isUser()">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <button class="btn btn-secondary btn-lg w-100" (click)="showReviewsFunc()">Prikaži
+                    komentare</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-secondary btn-lg w-100" (click)="showAvailableShopsFunc()">Proveri
+                    dostupnost</button>
+            </div>
+        </div>
+
+        <!-- Prikaz komentara -->
+        <ng-container *ngIf="showReviews">
+            <div class="mt-5" *ngIf="gameReviews.length > 0; else noReviews">
+                <app-reviews [reviews]="gameReviews" [user]=true [delete]=true></app-reviews>
+            </div>
+            <ng-template #noReviews>
+                <p class="text-center mt-5">Za ovu igru još uvek nema komentara</p>
+            </ng-template>
+        </ng-container>
+
+        <!-- Prikaz dostupnih prodavnica -->
+        <ng-container *ngIf="showAvailableShops">
+            <div class="mt-5" *ngIf="shops.length > 0; else noShops">
+                <app-available-shops [shops]="shops"></app-available-shops>
+            </div>
+            <ng-template #noShops>
+                <p class="text-center mt-5">Ova igra nije dostupna u prodavnicama.</p>
+            </ng-template>
+        </ng-container>
+    </div>
+</section>
+
+<!-- Modal za odabir količine -->
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Odaberite količinu" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <input nz-input type="number" [(ngModel)]="quantity" min="0" class="form-control" />
+    </ng-container>
+</nz-modal>
+
+
+
+
+
+
+
+
+
+<!-- <div class="game-details">
     <h2>{{ game?.name }}</h2>
     <img src="../../../assets/games/{{game.image}}" [alt]="game?.name">
     <p>Description: {{ game?.description }}</p>
     <p>Price: {{ game?.price | currency }}</p>
+    <ng-container *ngIf="gameReviews.length > 0; else noOrders">
+      <app-reviews [reviews]="gameReviews" [user]=true [delete]=true></app-reviews>
+    </ng-container>
+    <ng-template #noOrders>
+    <p class="no-orders-text">No reviews.</p>
+  </ng-template>
   </div>
-  
+   -->
+
+<!-- <section class="bg-light">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-5 mt-5">
+                <div class="card mb-3">
+                    <img class="card-img img-fluid" src="assets/games/{{game.image}}" alt="Card image cap"
+                        id="product-detail">
+                </div>
+
+            </div>
+            <div class="col-lg-7 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="h2">{{game.title}}</h1>
+                        <p class="h3 py-2">{{game.price.price}} rsd</p>
+                        <nz-rate [ngModel]="game.rating" nzDisabled></nz-rate>
+
+                        <p class="py-2">
+                            <span class="list-inline-item text-dark"> Ocena {{game.rating.toFixed(2)}}</span>
+                        </p>
+
+                        <h6>Opis:</h6>
+                        <p>{{game.description}}</p>
+
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Datum izlaska:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>{{calculateDate()}}</strong></p>
+                            </li>
+                        </ul>
+
+                        <h6>Platforme:</h6>
+                        <ul class="list-unstyled pb-3">
+                            <li *ngFor="let platform of game.platforms">{{platform}}</li>
+                        </ul>
+
+                        <h6>Žanrovi:</h6>
+                        <ul class="list-unstyled pb-3">
+                            <li *ngFor="let genre of game.genres">{{genre}}</li>
+                        </ul>
+
+
+                        <form action="" method="GET">
+                            <div class="row pb-3">
+                                <div class="col d-grid">
+                                    <button *ngIf="isUser()" type="submit" class="btn btn-success btn-lg" name="submit"
+                                        value="addtocard" (click)="buy()">Dodaj u korpu</button>
+                                    <button *ngIf="isGuest()" type="submit" class="btn btn-success btn-lg" name="submit"
+                                        value="addtocard" (click)="showReviewsFunc()">Prikaži komentare</button>
+                                </div>
+                                <div class="col d-grid">
+                                    <button *ngIf="isUser()" type="submit" class="btn btn-success btn-lg" name="submit"
+                                        value="addtocard" (click)="wishList()">Sviđa mi se</button>
+                                    <button *ngIf="isGuest()" type="submit" class="btn btn-success btn-lg" name="submit"
+                                        value="addtocard" (click)="showAvailableShopsFunc()">Proveri dostupnost</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3 justify-content-center">
+        <div class="col-2 align-self-center">
+            <button *ngIf="isUser()" type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard"
+                (click)="showReviewsFunc()">Prikaži komentare</button>
+        </div>
+        <div class="col-2 align-self-center">
+            <button *ngIf="isUser()" type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard"
+                (click)="showAvailableShopsFunc()">Proveri dostupnost</button>
+        </div>
+    </div>
+
+    <ng-container *ngIf="gameReviews.length > 0 && showReviews">
+        <app-reviews [reviews]="gameReviews" [user]=true [delete]=true></app-reviews>
+    </ng-container>
+    <ng-template *ngIf="gameReviews.length == 0 && showReviews">
+        <p class="no-orders-text">Za ovu igru još uvek nema komentara</p>
+    </ng-template>
+
+    <ng-container *ngIf="shops.length > 0 && showAvailableShops">
+        <app-available-shops [shops]="shops"></app-available-shops>
+    </ng-container>
+    <ng-template *ngIf="shops.length == 0 && showAvailableShops">
+        <p class="no-orders-text">Ova igra nije dostupna u prodavnicama.</p>
+    </ng-template>
+
+
+
+
+</section>
+
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Odaberite količinu" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <input nz-input type="number" [(ngModel)]="quantity" min="0" />
+    </ng-container>
+</nz-modal> -->

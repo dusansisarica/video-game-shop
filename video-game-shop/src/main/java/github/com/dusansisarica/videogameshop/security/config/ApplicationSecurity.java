@@ -5,7 +5,6 @@ import github.com.dusansisarica.videogameshop.security.auth.JwtTokenFilter;
 import github.com.dusansisarica.videogameshop.security.auth.RestAuthenticationEntryPoint;
 import github.com.dusansisarica.videogameshop.security.util.JwtTokenUtil;
 import github.com.dusansisarica.videogameshop.service.UserService;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,10 +34,12 @@ public class ApplicationSecurity {
     public UserDetailsService userDetailsService() {
         return new UserService();
     }
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -51,7 +52,6 @@ public class ApplicationSecurity {
 
         return authProvider;
     }
-
 
 
     // Handler za vracanje 401 kada klijent sa neodogovarajucim korisnickim imenom i lozinkom pokusa da pristupi resursu
@@ -80,8 +80,20 @@ public class ApplicationSecurity {
 
         // sve neautentifikovane zahteve obradi uniformno i posalji 401 gresku
         http.exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint);
-        http.authorizeRequests().requestMatchers("/api/registration").permitAll()
-                .requestMatchers("/api/auth/login").permitAll()
+        http.anonymous().and().authorizeRequests().antMatchers("/api/registration").permitAll()
+                .antMatchers("/api/auth/login").permitAll()
+                .antMatchers("/api/games/featured").permitAll()
+                .antMatchers("/api/games").permitAll()
+                .antMatchers("/api/games/genres").permitAll()
+                .antMatchers("/api/games/platforms").permitAll()
+                .antMatchers("/api/games/{id}").permitAll()
+                .antMatchers("/api/review/game/{id}").permitAll()
+                .antMatchers("/api/shop/game/{id}").permitAll()
+
+
+
+
+
 
                 // /h2-console/** ako se koristi H2 baza)// /api/foo
                 // ukoliko ne zelimo da koristimo @PreAuthorize anotacije nad metodama kontrolera, moze se iskoristiti hasRole() metoda da se ogranici
@@ -95,7 +107,7 @@ public class ApplicationSecurity {
                 .cors().and()
 
                 // umetni custom filter TokenAuthenticationFilter kako bi se vrsila provera JWT tokena umesto cistih korisnickog imena i lozinke (koje radi BasicAuthenticationFilter)
-                .addFilterBefore(new JwtTokenFilter(tokenUtils,  userDetailsService()), BasicAuthenticationFilter.class);
+                .addFilterBefore(new JwtTokenFilter(tokenUtils, userDetailsService()), BasicAuthenticationFilter.class);
 
         // zbog jednostavnosti primera ne koristimo Anti-CSRF token (https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
         http.csrf().disable();
@@ -113,12 +125,16 @@ public class ApplicationSecurity {
         // Autentifikacija ce biti ignorisana ispod navedenih putanja (kako bismo ubrzali pristup resursima)
         // Zahtevi koji se mecuju za web.ignoring().antMatchers() nemaju pristup SecurityContext-u
         // Dozvoljena POST metoda na ruti /auth/login, za svaki drugi tip HTTP metode greska je 401 Unauthorized
-        return (web) -> web.ignoring().requestMatchers(HttpMethod.POST, "/api/auth/login")
-                .requestMatchers(HttpMethod.POST, "/api/registration")
-                .requestMatchers(HttpMethod.GET, "/api/games")
-                .requestMatchers("/api/registration/verify")
+        return (web) -> web.ignoring().antMatchers(HttpMethod.POST, "/api/auth/login")
+                .antMatchers(HttpMethod.POST, "/api/registration")
+                .antMatchers(HttpMethod.GET, "/api/games")
+                .antMatchers(HttpMethod.GET,"/api/registration/verify")
+//                .antMatchers(HttpMethod.GET ,"/api/games/featured")
+//                .antMatchers(HttpMethod.GET,"/api/games/genres")
+
+
                 // Ovim smo dozvolili pristup statickim resursima aplikacije
-                .requestMatchers(HttpMethod.GET, "/", "/webjars/*", "/*.html", "favicon.ico",
+                .antMatchers(HttpMethod.GET, "/", "/webjars/*", "/*.html", "favicon.ico",
                         "/*/*.html", "/*/*.css", "/*/*.js");
 
     }

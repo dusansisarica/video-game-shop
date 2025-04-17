@@ -2,13 +2,13 @@ package github.com.dusansisarica.videogameshop.security.util;
 
 import github.com.dusansisarica.videogameshop.model.User;
 import io.jsonwebtoken.*;
-import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @Component
@@ -40,7 +40,7 @@ public class JwtTokenUtil {
     private static final String AUDIENCE_WEB = "web";
 
     // Algoritam za potpisivanje JWT
-    private SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS512;
+    private final SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS512;
 
 
     // ============= Funkcije za generisanje JWT tokena =============

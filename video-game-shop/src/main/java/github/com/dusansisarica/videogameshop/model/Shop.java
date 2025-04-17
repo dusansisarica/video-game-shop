@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +27,15 @@ public class Shop {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
+
+    @Column
+    private boolean deleted;
+
+    @OneToMany(mappedBy = "shop")
+    private List<ItemsForInventory> inventoryItems;
+
+    @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL)
+    private List<User> workers = new ArrayList<>();
 
 //    @OneToMany(mappedBy="shop", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //    private List<GameQuantity> items;

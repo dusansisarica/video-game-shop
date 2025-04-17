@@ -1,14 +1,15 @@
-<header>
-  <mat-toolbar>
-   <a href="/" text-decoration="none"> <h1>My Application</h1></a>
-    <div class="nav">
-      <div class="spacer"></div>
-      <button *ngIf="!isLoggedIn()" (click)="login()" mat-stroked-button>Login</button>
-      <button *ngIf="!isLoggedIn()"(click)="register()" mat-stroked-button>Register</button>
-      <button *ngIf="isUser()" (click)="myProfile()" mat-stroked-button>Moj Profil</button>
-      <button *ngIf="isLoggedIn()"(click)="logout()" mat-stroked-button>Odjavi se</button>
+<mat-toolbar>
+  <a href="/" text-decoration="none">
+    <h1>GameZone</h1>
+  </a>
 
-    </div>
-  </mat-toolbar>
-
-</header>
+  <div class="nav">
+    <div class="spacer"></div>
+    <button *ngIf="!isLoggedIn()" (click)="login()" mat-stroked-button>Uloguj se</button>
+    <button *ngIf="!isLoggedIn()" (click)="register()" mat-stroked-button>Registruj se</button>
+    <button *ngIf="isUser()" (click)="myProfile()" mat-stroked-button>Moj Profil</button>
+    <button *ngIf="isUser()" (click)="shop()" mat-stroked-button>Prodavnica</button>
+    <button *ngIf="isUser()" (click)="myCart()" mat-stroked-button>Korpa</button>
+    <button *ngIf="isLoggedIn()" (click)="logout()" mat-stroked-button>Odjavi se</button>
+  </div>
+</mat-toolbar>

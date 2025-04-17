@@ -13,8 +13,8 @@ main {
 
   
   .content {
-    width: 75%; /* Adjust the width of the content area as needed */
-    flex: 3;
+     width: 75%;
+    flex: 4; 
   }
   
   .games {
@@ -60,3 +60,13 @@ main {
   .game-card button:hover {
     background-color: #555;
   }
+
+
+  .fixed-height-image {
+    height: 300px; /* Adjust the height as needed */
+}
+card-img,card-img-top{
+  border-top-left-radius: var(--bs-card-inner-border-radius);
+  border-top-right-radius: var(--bs-card-inner-border-radius);
+  height: 400px;
+}

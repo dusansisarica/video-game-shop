@@ -1,1 +1,75 @@
-<p>previous-orders works!</p>
+<div class="orders-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title *ngIf="orders.length > 0">
+        <h2>Vaše porudžbine</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-container *ngIf="orders.length > 0; else noOrders">
+        <nz-table #basicTable [nzData]="orders">
+          <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Igre</th>
+              <th>Količina</th>
+              <th>Cena</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{order.orderDate}}</td>
+              <ng-container>
+                <td>
+                  <ng-container *ngFor="let item of order.purchasedItems; let lastItem = last">
+                    <div class="order-item">
+                      {{item.cartItem.game.title}}
+                      <button *ngIf="order.orderStatus=='SHIPPED'" mat-raised-button color="primary"
+                        (click)="showModal(item.cartItem.game.ID)">Napišite komentar</button>
+                      <nz-divider *ngIf="!lastItem"></nz-divider>
+                    </div>
+
+                    <nz-modal [(nzVisible)]="isVisible" nzTitle="Write a review" (nzOnCancel)="handleCancel()"
+                      (nzOnOk)="handleOk()">
+                      <ng-container *nzModalContent>
+                        <h3>Ostavi komentar za: <h3 style="font-weight: bold">{{ getGameName() }}:</h3>
+                        </h3>
+
+                        <br>
+                        <input nz-input placeholder="Review" [(ngModel)]="review" [disabled]="false" />
+                        <br>
+                        <br>
+                        <nz-rate [(ngModel)]="rate"></nz-rate>
+                      </ng-container>
+
+                    </nz-modal>
+                  </ng-container>
+
+                </td>
+                <td>
+                  <div *ngFor="let item of order.purchasedItems; let lastItem = last">
+                    {{item.cartItem.quantity}}
+                    <nz-divider *ngIf="!lastItem"></nz-divider>
+                  </div>
+                </td>
+                <td>
+                  <div *ngFor="let item of order.purchasedItems; let lastItem = last">
+                    {{item.cartItem.game.price.price}} rsd
+                    <nz-divider *ngIf="!lastItem"></nz-divider>
+                  </div>
+                </td>
+                <td>{{order.orderStatus}}</td>
+
+              </ng-container>
+            </tr>
+
+          </tbody>
+        </nz-table>
+      </ng-container>
+      <ng-template #noOrders>
+        <p class="no-orders-text">Još uvek nemate porudžbina.</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

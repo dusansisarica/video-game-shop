@@ -1,23 +1,65 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <div class="form-field">
-    <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name">
+<form nz-form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="user-details-form" nzLayout="horizontal">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="name">Ime</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="name" formControlName="name">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="surname">Prezime</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="surname" formControlName="surname">
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="address">Adresa</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="address" formControlName="address">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="city">Grad</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="city" formControlName="city">
+    </nz-form-control>
+  </nz-form-item> -->
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="city">Grad</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="city" formControlName="city" (input)="onCityInput($event)" placeholder="Unesite grad">
+      <ul *ngIf="cities.length > 0" class="suggestions">
+        <li *ngFor="let city of cities" (click)="onSelectCity(city)">
+          {{ city.name }}
+        </li>
+      </ul>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="address">Ulica</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="address" formControlName="address" (input)="onStreetInput($event)"
+        placeholder="Unesite ulicu">
+      <ul *ngIf="streets.length > 0" class="suggestions">
+        <li *ngFor="let street of streets" (click)="onSelectStreet(street)">
+          {{ street }}
+        </li>
+      </ul>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="country">Država</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="country" formControlName="country">
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="button-container" style="text-align: center; margin-top: 20px;">
+    <a class="btn btn-success" (click)="onSubmit()">Sačuvaj promene</a>
   </div>
-  <div class="form-field">
-    <label for="surname">Surname</label>
-    <input type="text" id="surname" formControlName="surname">
-  </div>
-  <div class="form-field">
-    <label for="address">Address</label>
-    <input type="text" id="address" formControlName="address">
-  </div>
-  <div class="form-field">
-    <label for="city">City</label>
-    <input type="text" id="city" formControlName="city">
-  </div>
-  <div class="form-field">
-    <label for="country">Country</label>
-    <input type="text" id="country" formControlName="country">
-  </div>
-  <button type="submit">Save Changes</button>
 </form>

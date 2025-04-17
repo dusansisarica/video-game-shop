@@ -19,7 +19,7 @@ public class ShopDtoMapper {
 
     @Autowired
     public ShopDtoMapper(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
+        ShopDtoMapper.modelMapper = modelMapper;
     }
 
     public static Shop fromDTOtoModel(ShopDto dto) {
@@ -30,10 +30,10 @@ public class ShopDtoMapper {
         return modelMapper.map(model, ShopDto.class);
     }
 
-    public static List<ShopDto> fromModeltoDTOList(List<Shop> modelList){
+    public static List<ShopDto> fromModeltoDTOList(List<Shop> modelList) {
         List<ShopDto> dto = new ArrayList<>();
-        for(Shop shop : modelList){
-            ShopDto shopDto = new ShopDto(shop.getId(), shop.getName(), null, AddressDtoMapper.fromModeltoDTO(shop.getAddress()));
+        for (Shop shop : modelList) {
+            ShopDto shopDto = new ShopDto(shop.getId(), shop.getName(), null, AddressDtoMapper.fromModeltoDTO(shop.getAddress()), shop.isDeleted());
             dto.add(shopDto);
         }
         return dto;

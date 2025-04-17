@@ -1,0 +1,52 @@
+/* Your existing styles remain the same */
+
+/* .order-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .order-date {
+    font-weight: bold;
+  }
+  
+  .order-status {
+    color: #2196F3;
+  }
+  
+  .order-items {
+    margin-top: 10px;
+  }
+  
+  .item-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .item-title {
+    font-weight: bold;
+  }
+  
+  .item-quantity {
+    color: #666;
+  }
+  
+  .item-price {
+    font-weight: bold;
+  } */
+  
+  .no-orders-text {
+    text-align: center;
+    color: #777;
+  }
+
+  .order-item {
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  

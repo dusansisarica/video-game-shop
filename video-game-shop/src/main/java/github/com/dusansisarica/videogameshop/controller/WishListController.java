@@ -5,13 +5,13 @@ import github.com.dusansisarica.videogameshop.dto.WishListDto;
 import github.com.dusansisarica.videogameshop.dto.WishListProductsDto;
 import github.com.dusansisarica.videogameshop.security.util.JwtTokenUtil;
 import github.com.dusansisarica.videogameshop.service.WishListService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -21,7 +21,7 @@ public class WishListController {
     @Autowired
     private WishListService wishListService;
 
-    private JwtTokenUtil jwtTokenUtil;
+    private final JwtTokenUtil jwtTokenUtil;
 
     public WishListController(JwtTokenUtil tokenHelper) {
         this.jwtTokenUtil = tokenHelper;

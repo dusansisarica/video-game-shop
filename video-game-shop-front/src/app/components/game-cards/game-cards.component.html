@@ -1,10 +1,100 @@
-<div class="games">
+<!-- <div class="games">
     <div class="game-card" *ngFor="let item of games">
       <img src="../../../assets/games/{{item.image}}" alt="{{ item.title }}">
       <h3>{{ item.title }}</h3>
       <p>{{ item.description }}</p>
-      <button (click)="gameDetails(item.id)">More Details</button>
-      <button (click)="addToWishList(item.id)">Wish List</button>
-      <button (click)="buy(item.id)">Buy</button>
+      <button *ngIf="isUser()" (click)="gameDetails(item.id)">More Details</button>
+      <button *ngIf="isUser()" (click)="addToWishList(item.id)">Wish List</button>
+      <button *ngIf="isUser()" (click)="buy(item.id)">Buy</button>
+      <button *ngIf="isAdmin()" (click)="updateGame(item.id)">Update Game</button>
+      <button *ngIf="isAdmin()" (click)="deleteGame(item.id)">Delete Game</button>
+
+    </div>
+  </div> -->
+<!-- <div class="g">
+  <div class="g-cards" *ngFor="let item of games">
+  <nz-card   nzHoverable [nzCover]="coverTemplate" class="custom-card">
+    <h3>{{item.title}}</h3>
+  </nz-card>
+  <ng-template #coverTemplate>
+    <img src="../../../assets/games/{{item.image}}" alt="{{ item.title }}" />
+  </ng-template>
+</div>
+</div> -->
+<section class="bg-light" *ngIf="!show()">
+  <div class="container py-5">
+    <div class="row text-center py-3">
+      <div class="col-lg-6 m-auto">
+        <h1 class="h1">Preporučene igrice</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4" *ngFor="let game of games">
+        <div class="card h-100">
+          <a href="games/{{game.ID}}">
+            <img src="./assets/games/{{game.image}}" class="card-img-top fixed-height" alt="{{game.title}}">
+          </a>
+          <div class="card-body">
+            <ul class="list-unstyled d-flex justify-content-between">
+              <nz-rate [ngModel]="game.rating" nzDisabled></nz-rate>
+              <li class="text-muted text-right" style="color: #198754 !important;">{{game.price.price}} rsd</li>
+            </ul>
+            <a href="games/{{game.ID}}" class="h2 text-decoration-none text-dark center">{{game.title}}</a>
+            <p class="card-text">
+            </p>
+            <!-- <div class="cart-button-container">
+                        <button nzType="default" nzShape="circle" class="cart-button"  *ngIf="isUser()" (click)="buy(game.id)">
+                          <i nz-icon nzType="shopping-cart"></i>
+                        </button>
+                      </div> -->
+            <br>
+            <div class="flex"> <a class="btn btn-success" *ngIf="isUser()" (click)="buy(game.id)">Dodaj u korpu</a>
+              <a class="btn btn-success" *ngIf="isUser()" (click)="addToWishList(game.id)">Sviđa mi se</a>
+            </div>
+            <!-- <button class="addtocart" *ngIf="isUser()" (click)="buy(game.id)">
+                      <div class="pretext">
+                        <i class="fas fa-cart-plus"></i> ADD TO CART
+                      </div>
+                      
+                    </button> -->
+            <!-- <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+                      <button nz-button nz-icon nzType="shopping-cart"  nzShape="circle" *ngIf="isUser()" (click)="buy(game.id)">Buy</button> -->
+            <!-- <p class="text-muted">Reviews (24)</p> -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
+
+
+<section *ngIf="show()">
+  <nz-table #basicTable [nzData]="games" [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Naziv</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of games; let lastItem=last">
+        <td>{{game.ID}}</td>
+        <td>
+          {{game.title}}
+        </td>
+        <td> <a class="btn btn-success" (click)="updateGame(game.id)">Ažuriraj igru</a> </td>
+        <td> <a class="btn btn-success" (click)="deleteGame(game.id)">Obriši igru</a> </td>
+        <td> <a class="btn btn-success" (click)="changePrice(game.id)">Izmeni cenu</a> </td>
+
+      </tr>
+    </tbody>
+  </nz-table>
+</section>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Choose qantity" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <input nz-input type="number" [(ngModel)]="quantity" min="0" />
+  </ng-container>
+</nz-modal>

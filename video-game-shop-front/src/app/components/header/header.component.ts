@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  login(){
+  login() {
     this.router.navigate(['login']);
   }
 
-  register(){
+  register() {
     this.router.navigate(['register']);
   }
 
@@ -29,13 +29,25 @@ export class HeaderComponent implements OnInit {
     return (localStorage.getItem("role") == "ROLE_USER")
   }
 
+  isAdmin() {
+    return (localStorage.getItem("role") == "ROLE_ADMIN")
+  }
+
   myProfile() {
-    this.router.navigate(['profile']);
+    this.router.navigate(['profile/details']);
   }
 
   logout() {
     localStorage.clear();
     this.router.navigate(['']);
+  }
+
+  myCart() {
+    this.router.navigate(['cart']);
+  }
+
+  shop() {
+    this.router.navigate(['shop']);
   }
 
 }
