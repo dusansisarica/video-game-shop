@@ -1,0 +1,29 @@
+<nz-table #basicTable [nzData]="shops">
+    <thead>
+        <tr>
+          <th>Prodavnica</th>
+          <th>Adresa</th>
+          <th ></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shop of shops">
+            <td>{{shop.name}}</td>
+            <td >{{shop.address.address}}, {{shop.address.city.name}}, {{shop.address.city.countryDto.name}}</td>
+            <td>
+              <button class="btn btn-success btn-lg" (click)="showOnMap(shop)" >Prikaži na mapi</button>
+            </td>
+      </tr>
+      </tbody>
+</nz-table>
+
+<nz-modal
+        [(nzVisible)]="isVisible"
+        (nzOnCancel)="handleCancel()"
+        nzClosable="false"
+        [nzFooter]=null
+    >
+    <ng-container *nzModalContent>
+        <app-shop-map class="map" [shop]="shop"></app-shop-map>
+    </ng-container>
+</nz-modal>

@@ -1,0 +1,46 @@
+.order-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+
+
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns, each taking 1/3 of available space */
+    gap: 10px; /* Adjust the gap between grid items as needed */
+  }
+  
+  .grid-item {
+    /* Optional styles for grid items */
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* .ant-modal-content .ng-tns-c316-1 {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    pointer-events: auto;
+    width: 800px;
+  } */
+
+  .my-custom-modal .ant-modal-content {
+    max-width: 800px; /* Set the desired width here */
+}
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}

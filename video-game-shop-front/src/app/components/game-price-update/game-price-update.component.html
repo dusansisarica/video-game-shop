@@ -1,0 +1,74 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <div class="form-container">
+        <nz-form-item>
+            <nz-form-label nzFor="updateType">Tip ažuriranja</nz-form-label>
+            <nz-form-control>
+                <nz-radio-group formControlName="updateType" id="updateType">
+                    <label nz-radio-button nzValue="discountOnly">Samo popust</label>
+                    <label nz-radio-button nzValue="priceAndDiscount">Cena i popust</label>
+                </nz-radio-group>
+            </nz-form-control>
+        </nz-form-item>
+
+        <ng-container *ngIf="validateForm.get('updateType')?.value === 'priceAndDiscount'">
+            <nz-form-item>
+                <nz-form-label nzFor="price">Cena</nz-form-label>
+                <nz-form-control nzErrorTip="Unesite cenu igre!">
+                    <nz-input-group nzPrefixIcon="dollar">
+                        <input nz-input type="number" formControlName="price" id="price" placeholder="Unesite cenu" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label nzFor="priceValidityRange">Period važenja cene</nz-form-label>
+                <nz-form-control>
+                    <nz-range-picker formControlName="priceValidityRange" id="priceValidityRange"
+                        nzStyle="width: 100%"></nz-range-picker>
+                </nz-form-control>
+            </nz-form-item>
+        </ng-container>
+
+        <nz-form-item>
+            <nz-form-label nzFor="discountType">Vrsta popusta</nz-form-label>
+            <nz-form-control>
+                <nz-select formControlName="discountType" id="discountType">
+                    <nz-option nzValue="NO_DISCOUNT" nzLabel="Bez popusta"></nz-option>
+                    <nz-option nzValue="PERCENTAGE_DISCOUNT" nzLabel="Procentualni popust"></nz-option>
+                    <nz-option nzValue="BUY_TWO_GET_ONE_FREE" nzLabel="Kupi dva, dobij jedan besplatno"></nz-option>
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item *ngIf="validateForm.get('discountType')?.value === 'PERCENTAGE_DISCOUNT'">
+            <nz-form-label nzFor="discountValue">Vrednost popusta (%)</nz-form-label>
+            <nz-form-control nzErrorTip="Unesite vrednost popusta!">
+                <nz-input-group nzSuffixIcon="percentage">
+                    <input nz-input type="number" formControlName="discountValue" id="discountValue"
+                        placeholder="Unesite vrednost popusta" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- <nz-form-item *ngIf="validateForm.get('discountType')?.value !== 'NO_DISCOUNT'">
+            <nz-form-label nzFor="discountValidityRange">Period važenja popusta</nz-form-label>
+            <nz-form-control>
+                <nz-range-picker formControlName="discountValidityRange" id="discountValidityRange"
+                    nzStyle="width: 100%"></nz-range-picker>
+            </nz-form-control>
+        </nz-form-item> -->
+        <nz-form-item *ngIf="validateForm.get('discountType')?.value !== 'NO_DISCOUNT'">
+            <nz-form-label nzFor="discountValidityRange">Period važenja popusta</nz-form-label>
+            <nz-form-control>
+                <nz-range-picker formControlName="discountValidityRange" id="discountValidityRange"
+                    nzStyle="width: 100%" [nzDisabledDate]="disabledDate"></nz-range-picker>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-control>
+                <a class="btn btn-success" (click)="submitForm()">Ažuriraj</a>
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+</form>

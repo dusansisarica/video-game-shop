@@ -1,0 +1,53 @@
+<nz-card class="container" [nzBorderless]="true" [nzBodyStyle]="{ padding: '12px' }">
+  <nz-form-item nz-row [nzGutter]="8">
+    <nz-form-label [nzSpan]="4" nzFor="shop">Izaberite prodavnicu</nz-form-label>
+    <nz-form-control [nzSpan]="20">
+      <div nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="18">
+          <nz-select id="shop" nzSize="large" [(ngModel)]="selectedShop" (ngModelChange)="getGames($event)"
+            style="width: 100%;">
+            <nz-option *ngFor="let shop of shops" [nzLabel]="shop.name" [nzValue]="shop.id"></nz-option>
+          </nz-select>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <button nz-button nzType="primary" nzSize="large" (click)="addGame()"
+            style="width: 100%; background-color: #198754; border-color: #198754; display: flex; align-items: center; justify-content: center;">
+            <i nz-icon nzType="plus" style="margin-right: 4px;"></i>
+            <span>Dodaj igricu</span>
+          </button>
+        </div>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+</nz-card>
+
+<nz-table #basicTable [nzData]="games" [nzFrontPagination]="false">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naziv</th>
+      <th>Količina</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let game of games; let lastItem=last">
+      <td>{{game.game.ID}}</td>
+      <td>
+        {{game.game.title}}
+      </td>
+      <td>{{game.quantity}}</td>
+      <!-- <td> <a class="btn btn-success" (click)="updateGame(game.id)">Ažuriraj igru</a> </td>
+        <td> <a class="btn btn-success"  (click)="deleteGame(game.id)">Obriši igru</a> </td> -->
+    </tr>
+  </tbody>
+</nz-table>
+<app-pagination [totalNumber]="totalNumber" (dataEvent)="fetchGames($event)"></app-pagination>
+
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Choose qantity" (nzOnCancel)="handleCancel()" [nzFooter]=null>
+  <ng-container *nzModalContent>
+    <app-game-shop-add [shopId]="selectedShop"></app-game-shop-add>
+  </ng-container>
+</nz-modal>

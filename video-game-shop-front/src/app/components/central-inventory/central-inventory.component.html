@@ -1,0 +1,19 @@
+<nz-table #basicTable [nzData]="items" [nzFrontPagination]="false">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Igrice</th>
+      <th>Količina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items; let lastItem=last">
+      <td>{{item.id}}</td>
+      <td>
+        {{item.videoGame.title}}
+      </td>
+      <td>{{item.quantity}}</td>
+    </tr>
+  </tbody>
+</nz-table>
+<app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination>

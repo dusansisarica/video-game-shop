@@ -1,0 +1,24 @@
+<nz-table #basicTable [nzData]="shops" [nzFrontPagination]="false">
+  <thead>
+    <tr>
+      <th><a (click)="sortById()">Id</a></th>
+      <th>Naziv</th>
+      <th>Adresa</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let shop of shops" [ngStyle]="{'color': shop.deleted? 'red' : 'black'}">
+      <td>{{shop.id}}</td>
+      <td>{{shop.name}}</td>
+      <td>{{shop.address.address}}, {{shop.address.city.name}}</td>
+      <td><button nz-button nzType="primary" nzBlock style="background-color: #198754; border-color: #198754;"
+          *ngIf="shop.deleted == false" (click)="addGame(shop.id)">Dodaj igricu</button></td>
+      <td><button nz-button nzType="primary" nzBlock style="background-color: #198754; border-color: #198754;"
+          (click)="update(shop.id)">Ažuriraj
+          prodavnicu</button></td>
+    </tr>
+  </tbody>
+</nz-table>
+<app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination>

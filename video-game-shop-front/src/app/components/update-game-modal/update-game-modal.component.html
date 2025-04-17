@@ -1,0 +1,77 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <div class="form-container">
+    <nz-form-item>
+      <nz-form-label nzFor="title">Naziv igre</nz-form-label>
+      <nz-form-control nzErrorTip="Unesite naziv igre!">
+        <nz-input-group nzPrefixIcon="book">
+          <input nz-input formControlName="title" id="title" placeholder="Unesite naziv igre" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="description">Opis igre</nz-form-label>
+      <nz-form-control nzErrorTip="Unesite opis igre!">
+        <textarea nz-input formControlName="description" id="description" placeholder="Unesite opis igre"
+          [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="price">Cena</nz-form-label>
+      <nz-form-control nzErrorTip="Unesite cenu igre!">
+        <nz-input-group nzPrefixIcon="dollar">
+          <input nz-input type="number" formControlName="price" id="price" placeholder="Unesite cenu" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="priceRange">Period važenja cene</nz-form-label>
+      <nz-form-control>
+        <nz-range-picker formControlName="priceRange" id="priceRange" nzStyle="width: 100%"></nz-range-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="release_date">Datum izlaska</nz-form-label>
+      <nz-form-control nzErrorTip="Izaberite datum izlaska!">
+        <nz-date-picker nzPlaceHolder="Izaberite datum izlaska" formControlName="release_date" id="release_date"
+          nzStyle="width: 100%"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="platforms">Platforme</nz-form-label>
+      <nz-form-control nzErrorTip="Izaberite bar jednu platformu!">
+        <nz-select formControlName="platforms" id="platforms" nzMode="multiple" nzPlaceHolder="Izaberite platforme">
+          <nz-option *ngFor="let platform of platformOptions" [nzLabel]="platform" [nzValue]="platform"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="genres">Žanrovi</nz-form-label>
+      <nz-form-control nzErrorTip="Izaberite bar jedan žanr!">
+        <nz-select formControlName="genres" id="genres" nzMode="multiple" nzPlaceHolder="Izaberite žanrove">
+          <nz-option *ngFor="let genre of genreOptions" [nzLabel]="genre" [nzValue]="genre"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="image">URL slike</nz-form-label>
+      <nz-form-control nzErrorTip="Unesite URL slike igre!">
+        <nz-input-group nzPrefixIcon="picture">
+          <input nz-input formControlName="image" id="image" placeholder="Unesite URL slike" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="primary" nzBlock>Ažuriraj igru</button>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</form>

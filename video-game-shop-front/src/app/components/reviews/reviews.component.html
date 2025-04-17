@@ -1,0 +1,50 @@
+<ng-container *ngIf="reviews && reviews.length > 0; else noReviews">
+  <nz-table #basicTable [nzData]="reviews" nzBordered nzSize="small" [nzFrontPagination]="false"
+    [nzShowPagination]="false" [nzPageIndex]="currentPage" [nzPageSize]="pageSize" [nzTotal]="totalNumber"
+    (nzPageIndexChange)="onPageChange($event)">
+    <thead>
+      <tr>
+        <th *ngIf="showUser()">Korisnik</th>
+        <th>Igrica</th>
+        <th>Komentar</th>
+        <th>Ocena</th>
+        <th *ngIf="showButton()">Akcije</th>
+        <th *ngIf="showStatus()">Status</th>
+        <th *ngIf="showDelete()">Brisanje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td *ngIf="showUser()">{{review.user.email}}</td>
+        <td>{{review.game.title}}</td>
+        <td>{{review.comment}}</td>
+        <td>
+          <nz-rate [ngModel]="review.rating" nzDisabled></nz-rate>
+        </td>
+        <td *ngIf="showButton()" style="display: flex; justify-content: space-between; padding: 8px;">
+          <button nz-button nzType="primary" nzSize="small" nzShape="round"
+            style="flex: 1; margin-right: 8px; background-color: #52c41a; border-color: #52c41a;"
+            (click)="approve(review.id)">Prihvati</button>
+          <button nz-button nzType="primary" nzSize="small" nzShape="round" nzDanger style="flex: 1;"
+            (click)="decline(review.id)">Odbij</button>
+        </td>
+        <td *ngIf="showStatus()">
+          <nz-tag [nzColor]="getStatusColor(review)">{{reviewStatus(review)}}</nz-tag>
+        </td>
+        <td *ngIf="showDelete()">
+          <button nz-button nzType="primary" nzDanger nzSize="small" (click)="deleteReview(review.id)">Obriši
+            komentar</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</ng-container>
+
+<ng-template #noReviews>
+  <nz-empty [nzNotFoundImage]="'https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'"
+    [nzNotFoundContent]="contentTemplate">
+    <ng-template #contentTemplate>
+      <span>Nema komentara</span>
+    </ng-template>
+  </nz-empty>
+</ng-template>

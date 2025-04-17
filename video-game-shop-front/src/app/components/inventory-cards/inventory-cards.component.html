@@ -1,0 +1,28 @@
+<div class="top">
+  <nz-input-group [nzSuffix]="suffixIconSearch">
+    <input type="text" nz-input placeholder="input search text" [(ngModel)]="inputValue" (input)="getSearch()">
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <span nz-icon nzType="search"></span>
+  </ng-template>
+</div>
+
+<div style="margin-top: 10px;">
+  <nz-table #basicTable [nzData]="items" [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Naziv</th>
+        <th>Količina</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.game.ID}}</td>
+        <td>{{item.game.title}}</td>
+        <td>{{item.quantity}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+<app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination>

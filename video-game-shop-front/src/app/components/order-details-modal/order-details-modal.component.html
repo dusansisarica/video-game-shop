@@ -1,0 +1,60 @@
+<!-- <nz-card [nzBordered]="false">
+    <ng-container *ngFor="let item of order.purchasedItems">
+      <div class="order-item">
+        <h3>{{ item.cartItem.game.title }}</h3>
+        <p>Quantity: {{ item.cartItem.quantity }} pieces</p>
+      </div>
+    </ng-container>
+    <div class="user-info">
+      <h2>{{ order.user.name }} {{ order.user.surname }}</h2>
+      <p>Email: {{ order.user.email }}</p>
+      <p>Address: {{ order.user.address.address }}, {{ order.user.address.city }}, {{ order.user.address.country }}</p>
+    </div>
+  </nz-card>
+   -->
+<div class="shipment-invoice">
+    <div class="invoice">
+        <div class="invoice-header">
+            <h1>Otpremnica</h1>
+        </div>
+        <div class="invoice-details">
+            <div class="from">
+                <h4>Od:</h4>
+                <p>Video Game Shop</p>
+            </div>
+            <div class="to">
+                <h4>Za:</h4>
+                <p>{{order.user.name}} {{order.user.surname}}</p>
+                <p>{{order.user.address.address}}, {{order.user.address.city.name}},
+                    {{order.user.address.city.countryDto.name}}</p>
+                <p>Kontakt: {{order.user.email}}</p>
+            </div>
+        </div>
+        <table class="invoice-items">
+            <thead>
+                <tr>
+                    <th>Broj</th>
+                    <th>Opis</th>
+                    <th>Količina</th>
+                    <th>Cena po komadu</th>
+                    <th>Ukupno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterirajte kroz stavke i popunite ovu tabelu sa podacima -->
+                <tr *ngFor="let item of order.purchasedItems; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.cartItem.game.title}}</td>
+                    <td>{{item.cartItem.quantity}}</td>
+                    <td>{{item.cartItem.game.price.price}} rsd</td>
+                    <td>{{getTotalForItem(item.cartItem.quantity, item.cartItem.game.price.price)}} rsd</td>
+                </tr>
+                <!-- Dodajte dodatne redove prema vašim potrebama -->
+            </tbody>
+        </table>
+        <div class="invoice-total">
+            <p>Ukupno: {{getTotalPrice()}}</p>
+        </div>
+    </div>
+    <button *ngIf="order.orderStatus!='SHIPPED'" class="send-shipment-button" (click)="ship()">Pošalji Pošiljku</button>
+</div>

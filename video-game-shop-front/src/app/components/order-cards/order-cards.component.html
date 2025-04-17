@@ -1,0 +1,35 @@
+<div *ngIf="items.length === 0" class="no-orders-message">
+  <nz-empty [nzNotFoundImage]="'https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'"
+    [nzNotFoundContent]="contentTemplate">
+    <ng-template #contentTemplate>
+      <span>Nema porudžbina</span>
+    </ng-template>
+  </nz-empty>
+</div>
+<nz-table *ngIf="items.length > 0" #basicTable [nzData]="items" [nzFrontPagination]="false">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naziv</th>
+      <th>Količina</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{item.videoGame.ID}}</td>
+      <td>{{item.videoGame.title}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.inventoryStatus}}</td>
+      <td *ngIf="item.inventoryStatus == 'ACCEPTED'">
+        <button style="width: 100%;" (click)="ship(item.id)">Pošalji</button>
+      </td>
+      <td *ngIf="item.inventoryStatus != 'ACCEPTED'">
+        <div style="display: flex; justify-content: space-evenly;"><button (click)="accept(item.id)">Prihvati</button>
+          <button (click)="decline(item.id)">Odbij</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

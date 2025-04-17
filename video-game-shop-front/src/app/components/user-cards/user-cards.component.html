@@ -1,0 +1,78 @@
+<div *ngIf="isAdmin()" class="top mb-3">
+    <div class="d-flex align-items-center">
+        <nz-input-group [nzSuffix]="suffixIconSearch" class="flex-grow-1 me-2">
+            <input type="text" nz-input placeholder="Unesite tekst za pretragu" [(ngModel)]="inputValue"
+                (input)="getSearch()">
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+            <span nz-icon nzType="search"></span>
+        </ng-template>
+        <button type="submit" class="btn btn-success flex-grow-1" name="submit" value="addtocard"
+            (click)="showModalManager()" style="white-space: nowrap;">
+            Dodaj menadžera
+        </button>
+    </div>
+</div>
+
+<div *ngIf="isManager()" class="top mb-3">
+    <div class="d-flex align-items-center">
+        <nz-input-group [nzSuffix]="suffixIconSearch" class="flex-grow-1 me-2">
+            <input type="text" nz-input placeholder="Unesite tekst za pretragu" [(ngModel)]="inputValue"
+                (input)="getSearch()">
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+            <span nz-icon nzType="search"></span>
+        </ng-template>
+    </div>
+</div>
+
+<nz-table #basicTable [nzData]="users" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Adresa</th>
+            <th>Uloga</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.email}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td *ngIf="user.address">{{user.address.address}}, {{user.address.city.name}}</td>
+            <td>{{user.role.name}}</td>
+            <th *ngIf="!isAdmin() && user.role.name=='ROLE_USER'"><button class="btn btn-success"
+                    (click)="employUser(user)">Zaposli</button>
+            </th>
+            <th *ngIf="!isAdmin() && user.role.name=='ROLE_STAFF'"><button class="btn btn-danger"
+                    (click)="showConfirmUnemployModal(user)">Otpusti</button>
+            </th>
+            <th *ngIf="isAdmin()"><button nz-button nzType="primary" nzDanger
+                    (click)="deleteUser(user.ID)">Obriši</button></th>
+        </tr>
+    </tbody>
+</nz-table>
+<app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Zaposli korisnika" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <app-user-employ-modal [user]="user" (dataEvent)="getAll()"></app-user-employ-modal>
+    </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleManager" nzTitle="Dodaj menadžera" (nzOnCancel)="handleCancelManager()"
+    nzClosable="false" [nzFooter]=null>
+    <ng-container *nzModalContent>
+        <app-add-manager></app-add-manager>
+    </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleConfirmUnemploy" nzTitle="Potvrda otpuštanja" [nzOkText]="'Da, siguran sam'"
+    [nzCancelText]="'Otkaži'" (nzOnCancel)="handleCancelConfirmUnemploy()" (nzOnOk)="handleOkConfirmUnemploy()">
+    <ng-container *nzModalContent>
+        <p>Da li ste sigurni da želite da otpustite ovog korisnika?</p>
+    </ng-container>
+</nz-modal>

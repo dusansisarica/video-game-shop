@@ -1,0 +1,24 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="game">Izaberite igru</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please select a game!">
+        <nz-select formControlName="game" id="game">
+          <nz-option *ngFor="let game of games" [nzLabel]="game.title" [nzValue]="game.ID"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="quantity">Količina</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input the game quantity!">
+        <input nz-input type="number" formControlName="quantity" id="quantity" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item nz-row>
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" >Dodaj igru</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  

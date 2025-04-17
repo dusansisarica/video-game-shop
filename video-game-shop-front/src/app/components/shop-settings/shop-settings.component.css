@@ -1,0 +1,14 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;  
+    margin-right: 3%;  
+}
+
+input {
+    margin-right : 20px;
+}
+
+.ant-input-affix-wrapper {
+    margin-right: 8%;
+}

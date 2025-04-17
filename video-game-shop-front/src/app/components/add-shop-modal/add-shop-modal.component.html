@@ -1,0 +1,64 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="kompaktna-forma">
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Molim Vas unesite ime prodavnice!">
+      <nz-input-group nzPrefixIcon="shop">
+        <input nz-input formControlName="name" placeholder="Ime prodavnice" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Molim Vas unesite adresu prodavnice!">
+      <nz-input-group nzPrefixIcon="environment">
+        <input nz-input formControlName="address" placeholder="Adresa">
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-row [nzGutter]="8">
+    <nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Molim Vas unesite grad!">
+          <nz-input-group nzPrefixIcon="bank">
+            <input nz-input formControlName="city" placeholder="Grad">
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+    <nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Molim Vas unesite državu!">
+          <nz-input-group nzPrefixIcon="flag">
+            <input nz-input formControlName="country" placeholder="Država">
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+  </nz-row>
+
+  <nz-row [nzGutter]="8">
+    <nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Molim Vas unesite geografsku dužinu!">
+          <nz-input-number formControlName="longitude" [nzStep]="0.000001" [nzPlaceHolder]="'Geografska dužina'"
+            [nzMin]="-180" [nzMax]="180" [nzPrecision]="6" style="width: 100%;"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+    <nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Molim Vas unesite geografsku širinu!">
+          <nz-input-number formControlName="latitude" [nzStep]="0.000001" [nzPlaceHolder]="'Geografska širina'"
+            [nzMin]="-90" [nzMax]="90" [nzPrecision]="6" style="width: 100%;"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+  </nz-row>
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24">
+      <button nz-button nzType="primary" nzBlock style="background-color: #198754; border-color: #198754;">Dodaj
+        prodavnicu</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

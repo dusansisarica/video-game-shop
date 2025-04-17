@@ -1,0 +1,19 @@
+.cart {
+    border: 1px solid #ddd;
+}
+.cart-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .cart-total {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+.gameQuantity {
+  display: flex;
+}
+  

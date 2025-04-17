@@ -1,0 +1,36 @@
+<div class="top">
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="input search text" [(ngModel)]="inputValue" (input)="getSearch()">
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+        <span nz-icon nzType="search"></span>
+    </ng-template>
+    <button nz-button nzType="primary" nzSize="large" (click)="showModalAdd()" class="custom-button"
+        style="background-color: #198754; border-color: #198754;">
+        <!-- <span nz-icon nzType="plus"></span> -->
+        Dodaj novu prodavnicu
+    </button>
+
+</div>
+<app-shop-cards (dataEvent)="addGame($event)" (updateShop)="updateShop($event)"></app-shop-cards>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Dodaj igru" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+    [nzFooter]=null>
+    <ng-container *nzModalContent>
+        <app-game-shop-add #cards [shopId]="shopId"></app-game-shop-add>
+    </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleAdd" nzTitle="Dodaj prodavnicu" (nzOnCancel)="handleCancelAdd()"
+    (nzOnOk)="handleOkAdd()" [nzFooter]=null>
+    <ng-container *nzModalContent>
+        <app-add-shop-modal (dataEvent)="refreshGames()"></app-add-shop-modal>
+    </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleUpdate" nzTitle="Ažuriraj prodavnicu" (nzOnCancel)="handleCancelUpdate()"
+    (nzOnOk)="handleOkUpdate()" [nzFooter]=null>
+    <ng-container *nzModalContent>
+        <app-update-shop-modal #cards [shopId]="shopId" (dataEvent)="refreshGames()"></app-update-shop-modal>
+    </ng-container>
+</nz-modal>

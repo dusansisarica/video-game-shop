@@ -1,0 +1,153 @@
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Kategorije</h1>
+            <ul class="list-unstyled templatemo-accordion">
+                <li class="pb-3">
+                    <a (click)="togglePlatformMenu()"
+                        class="collapse d-flex justify-content-between h3 text-decoration-none">
+                        Platform
+                        <i class=" fa fa-fw fa-chevron-down " [class.fa-chevron-down]="platformMenuOpen"
+                            [class.fa-chevron-down]="!platformMenuOpen"></i>
+                    </a>
+                    <ul *ngIf="platformMenuOpen" class=" list-unstyled pl-3">
+                        <li *ngFor="let platform of platforms"><a class="text-decoration-none"
+                                (click)="addPlatform(platform)"
+                                [ngClass]="{'selected-color': isSelected(platform)}">{{platform}}</a></li>
+                    </ul>
+                </li>
+                <li class="pb-3">
+                    <a (click)="toggleGenreMenu()"
+                        class="collapse d-flex justify-content-between h3 text-decoration-none">
+                        Žanrovi
+                        <i class=" pull-right fa fa-fw mt-1 fa-chevron-down" [class.fa-chevron-down]="genreMenuOpen"
+                            [class.fa-chevron-down]="!genreMenuOpen"></i>
+                    </a>
+                    <ul *ngIf="genreMenuOpen" id="collapseTwo" class="list-unstyled pl-3">
+                        <li *ngFor="let genre of genres"><a class="text-decoration-none" (click)="addGenre(genre)"
+                                [ngClass]="{'selected-color': isSelectedGenre(genre)}">{{genre}}</a></li>
+                        <!-- <li><a class=" text-decoration-none" href="#">Luxury</a></li> -->
+                    </ul>
+                </li>
+
+                <li class="pb-3">
+                    <a (click)="toggleSortMenu()"
+                        class="collapse d-flex justify-content-between h3 text-decoration-none">
+                        Sortiraj
+                        <i class="pull-right fa fa-fw mt-1" [class.fa-chevron-down]="sortMenuOpen"
+                            [class.fa-chevron-down]="!sortMenuOpen"></i>
+                    </a>
+                    <ul *ngIf="sortMenuOpen" class="list-unstyled pl-3">
+                        <li>
+                            <select class="form-control" [(ngModel)]="sortBy" (change)="sortGames()">
+                                <option value="title">Naslov</option>
+                                <option value="price">Cena</option>
+                                <option value="rating">Ocena</option>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="form-control mt-2" [(ngModel)]="sortDirection" (change)="sortGames()">
+                                <option value="asc">Rastuće</option>
+                                <option value="desc">Opadajuće</option>
+                            </select>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-lg-9">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination>
+
+                    <!-- <ul class="list-inline shop-top-menu pb-3 pt-1">
+                        <li class="list-inline-item">
+                            <a class="h3 text-dark text-decoration-none mr-3" href="#">All</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="h3 text-dark text-decoration-none mr-3" href="#">Men's</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
+                        </li>
+                    </ul> -->
+                </div>
+
+                <div class="col-md-6 pb-4">
+                    <div class="d-flex">
+                        <input type="text" [(ngModel)]="inputValue" (input)="getSearch()" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let game of games">
+                    <div class="card mb-4 product-wap rounded-0">
+                        <div class="card rounded-0">
+                            <img style="height: 400px;" class="card-img rounded-0 img-fluid"
+                                src="assets/games/{{game.image}}">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li *ngIf="isUser()"><a class="btn btn-success text-white"
+                                            (click)="wishList(game.ID)"><i class="far fa-heart"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" (click)="showDetails(game.ID)"><i
+                                                class="far fa-eye"></i></a></li>
+                                    <li *ngIf="isUser()"><a class="btn btn-success text-white mt-2"
+                                            (click)="buy(game.ID)"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+
+                            </div>
+                            <div *ngIf="game.price.action.actionType == 'PERCENTAGE_DISCOUNT'" class="discount-badge">
+                                {{ game.price.action.discountValue }}% OFF
+                            </div>
+                            <div *ngIf="game.price.action.actionType == 'BUY_ONE_GET_ONE_FREE'" class="discount-badge">
+                                Buy 2 Get 1 Free
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">{{game.title}}</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <nz-rate [ngModel]="game.rating" nzDisabled></nz-rate> `
+                                    <!-- <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i> -->
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">{{game.price.price}} rsd</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <nz-table [nzFrontPagination]="false"></nz-table>
+            <!-- <nz-pagination [nzPageIndex]="1" [nzTotal]="50" [nzPageSize]="10" (nzPageIndexChange)="getData($event)"></nz-pagination> -->
+        </div>
+
+        <nz-modal [(nzVisible)]="isVisible" nzTitle="Izaberite količinu" (nzOnCancel)="handleCancel()"
+            (nzOnOk)="handleOk()">
+            <ng-container *nzModalContent>
+                <input nz-input type="number" [(ngModel)]="quantity" min="0" [max]="totalQuantity" />
+            </ng-container>
+        </nz-modal>

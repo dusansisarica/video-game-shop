@@ -1,0 +1,138 @@
+/* Styling for the card container */
+
+nz-card {
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the order items */
+  .order-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+  
+  .order-item h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .order-item p {
+    margin: 0;
+  }
+  
+  /* Styling for user information */
+  .user-info {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+  
+  .user-info h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .user-info p {
+    margin: 0;
+  }
+
+  
+  body {
+    font-family: Arial, sans-serif;
+}
+
+.invoice {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.invoice-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.invoice-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.invoice-details .from,
+.invoice-details .to {
+    width: 45%;
+}
+
+.invoice-items {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.invoice-items th,
+.invoice-items td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+
+.invoice-items th {
+    background-color: #f2f2f2;
+}
+
+.invoice-total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.ant-modal-content .ng-tns-c316-1 {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    pointer-events: auto;
+    width: 800px;
+  }
+
+  /* Stilizacija za kontejner otpremnice i dugme */
+.shipment-invoice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  /* Stilizacija za dugme za slanje pošiljke */
+  .send-shipment-button {
+    background-color: #007bff; /* Boja pozadine */
+    color: white; /* Boja teksta */
+    border: none;
+    padding: 10px 20px; /* Veličina dugmeta */
+    margin-top: 20px; /* Razmak iznad dugmeta */
+    cursor: pointer; /* Promena kursora na pokazivač prilikom hovera */
+    font-size: 16px; /* Veličina fonta */
+    border-radius: 5px; /* Zaobljeni uglovi dugmeta */
+    transition: background-color 0.3s ease; /* Animacija boje pozadine */
+  }
+  
+  /* Stilizacija za hover efekat na dugmetu */
+  .send-shipment-button:hover {
+    background-color: #0056b3; /* Promenjena boja pozadine prilikom hovera */
+  }
+  

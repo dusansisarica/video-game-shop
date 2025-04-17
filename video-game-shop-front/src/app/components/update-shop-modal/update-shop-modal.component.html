@@ -1,0 +1,101 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="poboljsana-forma">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Unesite ime prodavnice">
+      <nz-input-group nzPrefixIcon="shop">
+        <input nz-input formControlName="name" placeholder="Ime prodavnice" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Unesite adresu">
+      <nz-input-group nzPrefixIcon="environment">
+        <input nz-input formControlName="address" placeholder="Adresa" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Unesite grad">
+      <nz-input-group nzPrefixIcon="bank">
+        <input nz-input formControlName="city" placeholder="Grad" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Unesite državu">
+      <nz-input-group nzPrefixIcon="flag">
+        <input nz-input formControlName="country" placeholder="Država" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item class="koordinate-grupa">
+    <nz-form-control nzErrorTip="Unesite geografsku dužinu">
+      <nz-input-number formControlName="longitude" [nzStep]="0.000001" [nzPlaceHolder]="'Geografska dužina'"
+        class="sire-polje"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item class="koordinate-grupa">
+    <nz-form-control nzErrorTip="Unesite geografsku širinu">
+      <nz-input-number formControlName="latitude" [nzStep]="0.000001" [nzPlaceHolder]="'Geografska širina'"
+        class="sire-polje"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="dugmici-grupa">
+    <button nz-button nzType="primary" type="submit"
+      style="background-color: #198754; border-color: #198754; font-size: 14px;">
+      <i nz-icon nzType="save"></i>Sačuvaj promene
+    </button>
+    <button nz-button nzDanger (click)="deleteShop(shopId)">
+      <i nz-icon nzType="delete"></i>Obriši prodavnicu
+    </button>
+  </div>
+</form>
+
+<style>
+  .poboljsana-forma {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .poboljsana-forma nz-form-item {
+    margin-bottom: 20px;
+  }
+
+  .poboljsana-forma nz-input-group {
+    width: 100%;
+  }
+
+  .koordinate-grupa {
+    margin-bottom: 20px;
+  }
+
+  .sire-polje {
+    width: 100% !important;
+  }
+
+  .dugmici-grupa {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+  }
+
+  .zeleni {
+    background-color: #198754;
+    border-color: #198754;
+  }
+
+  .dugmici-grupa button {
+    min-width: 140px;
+  }
+</style>

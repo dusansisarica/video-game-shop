@@ -1,0 +1,63 @@
+/* .leaflet-default-icon-path {
+    background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
+}
+
+.map {
+    padding: 0;
+}
+
+.ant-modal-body .ng-tns-c316-5 {
+    padding: 1px;
+    font-size: 14px;
+    line-height: 1.5715;
+    word-wrap: break-word;
+} */
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+::ng-deep .leaflet-popup-content-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+::ng-deep .leaflet-popup-content {
+    margin: 10px;
+    font-family: Arial, sans-serif;
+}
+
+::ng-deep .leaflet-popup-content b {
+    color: #333;
+    font-size: 16px;
+}
+
+::ng-deep .leaflet-popup-tip-container {
+    display: none;
+}
+
+::ng-deep .leaflet-control-zoom {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .leaflet-control-zoom a {
+    background-color: white;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+::ng-deep .leaflet-control-zoom a:hover {
+    background-color: #f0f0f0;
+}

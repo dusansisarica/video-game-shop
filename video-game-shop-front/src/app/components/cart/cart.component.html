@@ -1,0 +1,196 @@
+<div class="korpa-kontejner" style="margin-top: 50px; margin-bottom: 50px;">
+  <div *ngIf="cart.cartItems && cart.cartItems.length > 0; else praznaKorpa">
+    <h2 class="naslov-korpe">Vaša korpa</h2>
+    <div class="lista-proizvoda">
+      <div class="proizvod" *ngFor="let cartItem of cart.cartItems">
+        <img class="slika-proizvoda" src="../../../assets/games/{{cartItem.game.image}}"
+          alt="{{ cartItem.game.title }}">
+        <div class="detalji-proizvoda">
+          <h3 class="naziv-proizvoda">{{ cartItem.game.title }}</h3>
+          <p class="kolicina">Količina: {{cartItem.quantity}}</p>
+          <p class="cena"
+            *ngIf="cartItem.game.price.price == 0 || cartItem.game.price.action != null && cartItem.game.price.action.actionType == 'PERCENTAGE_DISCOUNT'; else regularCena">
+            <span class="popust-cena">Cena sa popustom: {{ cartItem.game.price.price }} rsd</span>
+          </p>
+          <ng-template #regularCena>
+            <p class="cena">{{ cartItem.game.price.price }} rsd</p>
+          </ng-template>
+        </div>
+        <button class="dugme-ukloni" (click)="removeItem(cartItem.game.ID)">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="ukupno">
+      <p class="ukupna-cena">Ukupno: <strong>{{ getTotalPrice() }} rsd</strong></p>
+      <button class="dugme-kupi" (click)="buy()">Kupi</button>
+    </div>
+  </div>
+
+  <ng-template #praznaKorpa>
+    <div class="prazna-korpa">
+      <i class="fas fa-shopping-cart prazna-korpa-ikona"></i>
+      <h2>Korpa je prazna</h2>
+      <button class="dugme-nastavi-kupovinu" routerLink="/shop">Nastavi kupovinu</button>
+    </div>
+  </ng-template>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+  .korpa-kontejner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .naslov-korpe {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 700;
+  }
+
+  .lista-proizvoda {
+    background-color: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .proizvod {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ecf0f1;
+  }
+
+  .slika-proizvoda {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+  }
+
+  .detalji-proizvoda {
+    flex-grow: 1;
+  }
+
+  .naziv-proizvoda {
+    margin: 0 0 5px;
+    color: #2c3e50;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+
+  .kolicina,
+  .cena {
+    margin: 2px 0;
+    color: #34495e;
+    font-size: 0.9em;
+  }
+
+  .popust-cena {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+
+  .dugme-ukloni {
+    background-color: transparent;
+    color: #e74c3c;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px;
+  }
+
+  .ukupno {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .ukupna-cena {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin: 0;
+  }
+
+  .dugme-kupi {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .dugme-kupi:hover {
+    background-color: #219a52;
+  }
+
+  .prazna-korpa {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .prazna-korpa-ikona {
+    font-size: 3em;
+    color: #bdc3c7;
+    margin-bottom: 15px;
+  }
+
+  .prazna-korpa h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+  }
+
+  .dugme-nastavi-kupovinu {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .dugme-nastavi-kupovinu:hover {
+    background-color: #2980b9;
+  }
+</style>
+<!-- }
+}
+
+rsd</p></ng-template><button mat-button (click)="removeItem(cartItem.game.ID)">Ukloni</button><br><br></mat-list-item>
+<div class="cart-total">
+  <p>Ukupno: {
+    {
+    getTotalPrice()
+    }
+    }
+
+    rsd</p><button mat-button (click)="buy()">Kupi</button>
+</div></mat-list><ng-template #noOrders>
+  <h2 class="no-orders-text">Vaša korpa je prazna.</h2>
+</ng-template></div> -->

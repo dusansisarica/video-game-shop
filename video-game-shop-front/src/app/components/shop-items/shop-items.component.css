@@ -1,0 +1,42 @@
+.selected-color {
+    font-weight: bold !important;
+    color: #198754;
+    /* Promenite na boju koju želite */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /* Za zaobljene ivice */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Blaga senka */
+}
+
+.card-img-top {
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.discount-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 50px;
+    /* Visina trakice */
+    background-color: #198754;
+    /* Crvena boja pozadine */
+    color: #ffffff;
+    /* Bela boja teksta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transform: translate(100px); */
+    /* transform: rotate(45deg);
+    transform-origin: top right; */
+    z-index: 10;
+    /* Da bude iznad drugih elemenata */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* Da bude iznad drugih elemenata */
+}

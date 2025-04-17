@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="top">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="input search text" [(ngModel)]="inputValue" (input)="getSearch()">
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+            <span nz-icon nzType="search"></span>
+        </ng-template>
+        <a class="btn btn-success w-50" (click)="showModal()">Dodaj igru</a>
+
+    </div>
+</div>
+
+<!-- <app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination> -->
+
+<app-game-cards [games]="games" [admin]=true (dataEvent)="getGameId($event)"></app-game-cards>
+<app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Dodaj igru" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+    nzClosable="false" [nzFooter]=null>
+    <ng-container *nzModalContent>
+        <app-add-game-modal></app-add-game-modal>
+    </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleUpdate" nzTitle="Ažuriraj igru" (nzOnCancel)="handleCancelUpdate()"
+    (nzOnOk)="handleOkUpdate()" nzClosable="false" [nzFooter]=null>
+    <ng-container *nzModalContent>
+        <app-update-game-modal [gameId]="gameId"></app-update-game-modal>
+    </ng-container>
+
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisiblePrice" nzTitle="Izmeni cenu" (nzOnCancel)="handleCancelPrice()" (nzOnOk)="handleOk()"
+    nzClosable="false" [nzFooter]=null>
+    <ng-container *nzModalContent>
+        <app-game-price-update [gameId]="gameId"></app-game-price-update>
+    </ng-container>
+
+</nz-modal>

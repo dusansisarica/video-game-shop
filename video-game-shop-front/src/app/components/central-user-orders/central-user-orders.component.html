@@ -1,0 +1,55 @@
+<div *ngIf="orders.length === 0" class="no-orders-message">
+  <nz-empty [nzNotFoundImage]="'https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'"
+    [nzNotFoundContent]="contentTemplate">
+    <ng-template #contentTemplate>
+      <span>Nema porudžbina</span>
+    </ng-template>
+  </nz-empty>
+</div>
+<nz-table *ngIf="orders.length > 0" #basicTable [nzData]="orders" [nzFrontPagination]="false">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Igrice</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{order.id}}</td>
+      <td><ng-container *ngFor="let item of order.purchasedItems; let lastItem = last">
+          <div class="grid-container">
+            <div class="grid-item">
+              {{item.cartItem.game.title}}
+            </div>
+            <div class="grid-item">
+              {{item.cartItem.quantity}} pcs
+            </div>
+            <div class="grid-item"
+              [ngClass]="{'text-green': findItem(item.cartItem.game.ID) >= item.cartItem.quantity, 'text-red': findItem(item.cartItem.game.ID) < item.cartItem.quantity}">
+              U SKLADIŠTU: {{findItem(item.cartItem.game.ID)}}
+            </div>
+          </div>
+        </ng-container></td>
+      <td>
+        {{order.orderStatus}}
+      </td>
+      <td>
+        <button *ngIf="order.canBeShipped || order.orderStatus=='SHIPPED'" (click)="showModal(order)">Detalji
+          porudžbine</button>
+        <!-- <button *ngIf="!order.canBeShipped" (click)="requestGames(order)" disabled>Request games</button> -->
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" [nzWidth]="800" [nzFooter]=null nzClosable="true"
+  [nzOkLoading]="isOkLoading">
+  <ng-container *nzModalContent>
+    <app-order-details-modal id="modal" (loadingStart)="loadingStart()" (loadingDone)="loadingDone()"
+      (dataEvent)="getItems()" [order]="order" class="my-custom-modal"></app-order-details-modal>
+  </ng-container>
+</nz-modal>
+
+
+<!-- <app-pagination [totalNumber]="totalNumber" (dataEvent)="getData($event)"></app-pagination> -->
