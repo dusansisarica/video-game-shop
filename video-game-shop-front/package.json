@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",
+    "@angular/cdk": "^14.2.7",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -27,7 +28,7 @@
     "leaflet-heatmap": "^1.0.0",
     "leaflet.heat": "^0.2.0",
     "ng-zorro-antd": "^14.0.0",
-    "ng2-charts": "^6.0.1",
+    "ng2-charts": "^4.1.1",
     "rxjs": "~7.5.0",
     "swiper": "^10.2.0",
     "tslib": "^2.3.0",
