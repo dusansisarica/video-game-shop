@@ -11,7 +11,19 @@
     overflow-y: auto; Enable vertical scrolling when content overflows */
   }
 
+  nz-header {
+    padding: 10;
+  }
+  app-header {
+    width: 100%;
+    box-sizing: border-box;
+  }
   nz-footer {
     background: #001529;
     color: #fff;
   }
+
+  .ant-layout-header {
+    display: flex;
+    align-items: center;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { OrderService } from 'src/app/services/order.service';
 import { ReviewService } from 'src/app/services/review.service';

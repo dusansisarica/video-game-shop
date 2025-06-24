@@ -1,3 +1,15 @@
+ .spaced-div {
+  margin-bottom: 24px;
+}
+
+.form-field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.login-button {
+  margin-top: 16px;
+}
  .login-container {
     display: flex;
     justify-content: center;
@@ -9,7 +21,7 @@
     width: 400px;
     padding: 20px;
     text-align: left; 
-    border: 1px solid #ccc; /* Add a border around the input field */
+    border: 1px solid #198754; /* Add a border around the input field */
     border-radius: 4px;
   }
   
@@ -28,8 +40,18 @@
   
   .login-button {
     width: 100%;
+    border: none;
+    color: #fff;
+    background-color: #198754;
+    margin-left: 8px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+  .login-button:hover {
+    background-color: #fff;
+    color: #198754;
   }
-
   .mat-card {
     display: flex;
     flex-direction: column;
