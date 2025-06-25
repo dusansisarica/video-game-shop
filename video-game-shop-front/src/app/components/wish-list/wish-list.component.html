@@ -16,7 +16,7 @@
         <tbody>
           <tr *ngFor="let game of products">
             <td>
-              <img [src]="'./assets/games/' + game.product.image" [alt]="game.product.title" class="img-thumbnail"
+              <img [src]="'./assets/games/' + game.product.image" [alt]="game.product.title" class="game-img"
                 style="width: 100px; height: 100px; object-fit: cover;">
             </td>
             <td>
@@ -29,8 +29,8 @@
             </td>
             <td>{{game.product.price.price}} RSD</td>
             <td>
-              <button class="btn btn-sm btn-danger" (click)="removeProductFromWishList(game.id)">
-                <i class="fas fa-trash-alt"></i> Ukloni
+              <button class="btn btn-outline-danger btn-sm" (click)="removeProductFromWishList(game.id)">
+                <i class="bi bi-trash"></i> Ukloni
               </button>
             </td>
           </tr>

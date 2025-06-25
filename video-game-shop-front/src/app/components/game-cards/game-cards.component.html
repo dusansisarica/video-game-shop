@@ -39,7 +39,7 @@
               <nz-rate [ngModel]="game.rating" nzDisabled></nz-rate>
               <li class="text-muted text-right" style="color: #198754 !important;">{{game.price.price}} rsd</li>
             </ul>
-            <a href="games/{{game.ID}}" class="h2 text-decoration-none text-dark center">{{game.title}}</a>
+            <a href="games/{{game.ID}}" class="h2 text-dark center game-title-link">{{game.title}}</a>
             <p class="card-text">
             </p>
             <!-- <div class="cart-button-container">
@@ -49,7 +49,7 @@
                       </div> -->
             <br>
             <div class="flex"> <a class="btn btn-success" *ngIf="isUser()" (click)="buy(game.id)">Dodaj u korpu</a>
-              <a class="btn btn-success" *ngIf="isUser()" (click)="addToWishList(game.id)">Sviđa mi se</a>
+              <a class="btn btn-success" *ngIf="isUser()" [class.clicked]="checkLiked(game.id)" (click)="handleLike(game.id)">{{ checkLiked(game.id) ? '✔ Dodato' : 'Sviđa mi se'}}</a>
             </div>
             <!-- <button class="addtocart" *ngIf="isUser()" (click)="buy(game.id)">
                       <div class="pretext">
@@ -82,7 +82,7 @@
     <tbody>
       <tr *ngFor="let game of games; let lastItem=last">
         <td>{{game.ID}}</td>
-        <td>
+        <td [ngClass]="{ 'deleted-game': game.deleted }">
           {{game.title}}
         </td>
         <td> <a class="btn btn-success" (click)="updateGame(game.id)">Ažuriraj igru</a> </td>

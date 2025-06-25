@@ -36,14 +36,30 @@ export class GameDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const gameIdParam = this.route.snapshot.paramMap.get('id');
+    
+    this.route.paramMap.subscribe(params => {
+    const gameIdParam = params.get('id');
     if (gameIdParam !== null) {
       this.gameId = +gameIdParam;
       this.fetchGameDetails();
       this.getShopsForGame();
+      this.addToRecentGames(this.gameId);
     }
+  });
+
 
   }
+
+  addToRecentGames(gameId: number): void {
+  let recent = JSON.parse(localStorage.getItem('recentGames') || '[]') as number[];
+
+  recent = recent.filter(id => id !== gameId);
+  recent.unshift(gameId);
+  recent = recent.slice(0, 4); 
+
+  localStorage.setItem('recentGames', JSON.stringify(recent));
+}
+
 
   calculateDate() {
     const normalDate = new Date(this.game.release_date[0], this.game.release_date[1] - 1, this.game.release_date[2]);

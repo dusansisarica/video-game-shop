@@ -70,3 +70,23 @@ card-img,card-img-top{
   border-top-right-radius: var(--bs-card-inner-border-radius);
   height: 400px;
 }
+
+.game-title {
+  transition: transform 0.3s;
+}
+
+.game-title h1:hover {
+  /* transform: scale(1.1); */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+}
+
+.image-transition img {
+  transition: transform 0.3s;
+}
+
+.image-transition img:hover {
+  transform: scale(1.05);
+}
+

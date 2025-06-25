@@ -25,6 +25,7 @@ export class ShopItemsComponent implements OnInit {
   sortMenuOpen = false;
   sortBy = 'title';
   sortDirection = 'asc';
+  likedGames: number[] = [];
 
 
 
@@ -42,6 +43,7 @@ export class ShopItemsComponent implements OnInit {
     this.getGames([], []);
     this.getGenres();
     this.getPlatforms();
+    this.getWishList();
 
   }
 
@@ -56,6 +58,16 @@ export class ShopItemsComponent implements OnInit {
     this.videoGameService.getPlatforms().subscribe(data => {
       this.platforms = data;
     })
+  }
+
+  getWishList() {
+    this.wishListService.getAllProducts().subscribe(data => {
+      this.likedGames = data.map((item: any) => item.product.ID);
+    });
+  }
+
+  checkLiked(gameId: number): boolean {
+    return this.likedGames.includes(gameId);
   }
 
 
@@ -121,7 +133,12 @@ export class ShopItemsComponent implements OnInit {
 
 
   wishList(id: any) {
-    this.wishListService.addToWishList(id).subscribe();
+    if (this.likedGames.includes(id)) {
+      this.message.create('warning', `Već ste dodali ovu igru u listu želja!`);
+      return;
+    }
+    this.wishListService.addToWishList(id).subscribe( () => {
+      this.getWishList();});
     this.message.create('success', `Uspešno dodato!`)
 
   }

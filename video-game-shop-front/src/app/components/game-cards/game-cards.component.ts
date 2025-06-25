@@ -15,6 +15,7 @@ export class GameCardsComponent implements OnInit {
     private videoGameService: FeaturedGamesService) { }
 
   ngOnInit(): void {
+    this.getWishList();
   }
 
   @Input() games: any;
@@ -23,12 +24,25 @@ export class GameCardsComponent implements OnInit {
   gameId!: any;
   isVisible = false;
   quantity!: any;
+  likedGames: number[] = [];
+  liked: boolean = false;
 
 
   buy(id: any) {
     this.gameId = id;
     this.isVisible = true
 
+  }
+
+  getWishList() {
+    this.wishListService.getAllProducts().subscribe(data => {
+      console.log("DOLAZI IZ WISHLISTA: " , data);
+      this.likedGames = data.map((item: any) => item.product.ID);
+
+      // this.likedGames = data.map((game: any) => game.product.ID);
+      console.log("SVIDJA MI SE: " , this.likedGames);
+      // this.liked = this.likedGames.some((game: any) => game.id === this.gameId);
+    })
   }
 
   handleCancel() {
@@ -48,8 +62,19 @@ export class GameCardsComponent implements OnInit {
     this.isVisible = false;
   }
 
+  handleLike(gameId: number){
+    if (this.likedGames.includes(gameId)) {
+    console.log("Igra je već lajkovana.");
+    return;
+    }
+    
+    this.addToWishList(gameId);
+    // this.liked = !this.liked;
+  }
+
   public addToWishList(id: any): void {
-    this.wishListService.addToWishList(id).subscribe()
+    this.wishListService.addToWishList(id).subscribe(data => {
+      this.getWishList();});
   }
 
   public gameDetails(id: any): void {
@@ -81,6 +106,12 @@ export class GameCardsComponent implements OnInit {
 
   show() {
     return this.admin;
+  }
+
+  checkLiked(id: any): boolean {
+      return this.likedGames && this.likedGames.includes(id);
+
+    // return this.likedGames.some((game: any) => game.id === id);
   }
 
 }

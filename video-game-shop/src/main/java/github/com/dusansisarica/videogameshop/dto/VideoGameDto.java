@@ -29,6 +29,7 @@ public class VideoGameDto {
     public Set<Genre> genres;
     public String image;
     public double rating;
+    public boolean deleted;
 
     @Override
     public boolean equals(Object o) {

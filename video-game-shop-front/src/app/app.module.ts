@@ -66,6 +66,7 @@ import { ShopMapComponent } from './components/shop-map/shop-map.component';
 import { AddManagerComponent } from './components/add-manager/add-manager.component';
 import { GamePriceUpdateComponent } from './components/game-price-update/game-price-update.component';
 import { MapboxService } from './services/mapbox.service';
+import { RecentGamesComponent } from './components/recent-games/recent-games.component';
 
 registerLocaleData(en);
 
@@ -119,7 +120,8 @@ registerLocaleData(en);
     AvailableShopsComponent,
     ShopMapComponent,
     AddManagerComponent,
-    GamePriceUpdateComponent
+    GamePriceUpdateComponent,
+    RecentGamesComponent,
   ],
   imports: [
     BrowserModule,

@@ -76,4 +76,11 @@ main {
   .form-section button:hover {
     background-color: #555;
   }
+
+  .active-link a {
+  color: #198754 !important; /* Bootstrap zelena */
+  font-weight: bolder;
+  scale: 1.1;
+}
+
   

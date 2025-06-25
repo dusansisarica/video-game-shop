@@ -93,7 +93,7 @@
                                 class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                     <li *ngIf="isUser()"><a class="btn btn-success text-white"
-                                            (click)="wishList(game.ID)"><i class="far fa-heart"></i></a></li>
+                                            (click)="wishList(game.ID)"><i [class]="checkLiked(game.ID) ? 'fas fa-heart' : 'far fa-heart'"></i></a></li>
                                     <li><a class="btn btn-success text-white mt-2" (click)="showDetails(game.ID)"><i
                                                 class="far fa-eye"></i></a></li>
                                     <li *ngIf="isUser()"><a class="btn btn-success text-white mt-2"

@@ -1,0 +1,30 @@
+<!-- <div *ngIf="recentGames.length > 0" class="mt-4">
+  <h4 class="mb-3">Nedavno ste gledali</h4>
+  <div class="row">
+    <div class="col-md-3 games" *ngFor="let game of recentGames">
+      <div class="card h-100">
+        <img src="assets/games/{{game.image}}" class="card-img-top" alt="{{ game.title }}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ game.title }}</h5>
+          <a (click)="showDetails(game.ID)" class="btn btn-outline-primary mt-auto btn-sm">
+            Pogledaj
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<section class="mt-5 recent-wrapper">
+  <h4 class="mb-4 text-center text-muted">Nedavno ste pogledali</h4>
+  <div class="row g-4">
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let game of recentGames">
+      <div class="card recent-card h-100 shadow-sm">
+        <img src="assets/games/{{game.image}}" class="card-img-top recent-img" alt="{{ game.title }}">
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title text-truncate" title="{{ game.title }}">{{ game.title }}</h6>
+          <a [routerLink]="'/games/' + game.id" class="btn btn-outline-success btn-sm mt-auto">Pogledaj</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

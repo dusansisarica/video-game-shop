@@ -1,12 +1,20 @@
 <main>
   <section class="sidebar">
     <!-- Sidebar content with category links -->
-    <ul *ngIf="isUser()" nz-menu nzMode="inline">
-      <li nz-menu-item><a routerLink="details">Moj profil</a></li>
-      <li nz-menu-item><a routerLink="wish-list">Igrice koje mi se sviđaju</a></li>
-      <li nz-menu-item><a routerLink="previous-orders">Moje porudžbine</a></li>
-      <li nz-menu-item><a routerLink="comments">Moji komentari</a></li>
-    </ul>
+<ul *ngIf="isUser()" nz-menu nzMode="inline">
+  <li nz-menu-item routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+    <a routerLink="details">Moj profil</a>
+  </li>
+  <li nz-menu-item routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+    <a routerLink="wish-list">Igrice koje mi se sviđaju</a>
+  </li>
+  <li nz-menu-item routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+    <a routerLink="previous-orders">Moje porudžbine</a>
+  </li>
+  <li nz-menu-item routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+    <a routerLink="comments">Moji komentari</a>
+  </li>
+</ul>
     <ul *ngIf="isAdmin()" nz-menu nzMode="inline">
       <li nz-menu-item nzTitle="Video Game Settings">
         <a routerLink="game-settings">Upravljanje igricama</a>

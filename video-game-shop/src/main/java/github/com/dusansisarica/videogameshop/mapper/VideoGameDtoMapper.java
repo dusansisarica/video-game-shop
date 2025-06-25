@@ -38,7 +38,8 @@ public class VideoGameDtoMapper {
                 model.getPlatforms(),
                 model.getGenres(),
                 model.getImage(),
-                model.calculateAverageRating());
+                model.calculateAverageRating(),
+                model.isDeleted());
     }
 
     public static List<VideoGameDto> fromModeltoDTOList(List<VideoGame> modelList) {

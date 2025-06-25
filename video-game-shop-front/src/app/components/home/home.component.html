@@ -16,11 +16,15 @@
                 <div class="container" >
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last fixed-height-image"  >
+                            <a class="image-transition" href="games/{{game.ID}}">
                             <img class="img-fluid fixed-height-image" src="./assets/games/{{game.image}}" alt="game.title">
+                            </a>
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
+                                <a class="game-title" href="games/{{game.ID}}" style="text-decoration:none">
                                 <h1 class="h1 text-success">{{game.title}}</h1>
+                                </a>
                                 <h3 class="h2">{{game.description}}</h3>
                                 <p>
                                 </p>

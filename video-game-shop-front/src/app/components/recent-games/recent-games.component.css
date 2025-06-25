@@ -1,0 +1,25 @@
+.recent-wrapper {
+  padding: 0 15px;
+  margin-bottom: 60px;
+}
+
+.recent-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.recent-card:hover {
+  transform: translateY(-5px);
+}
+
+.recent-img {
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
