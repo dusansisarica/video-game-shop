@@ -53,7 +53,7 @@ public class PriceService {
 
         if (priceDto.getAction() != null && !"NO_DISCOUNT".equals(priceDto.getAction().name)) {
             Discount discount = discountDtoMapper.fromDTOtoModel(priceDto.getAction());
-            discount = discountRepository.save(discount); // Прво сачувајте Discount
+            discount = discountRepository.save(discount); 
             priceList.setDiscount(discount);
         }
 

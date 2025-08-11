@@ -1,0 +1,19 @@
+
+
+<div *ngIf="recommendedGames && recommendedGames.length > 0" class="container mt-5">
+<!-- <section class="recommended-section"> -->
+  <h2 class="section-title">Preporučene igrice samo za Vas</h2>
+
+  <div class="recommended-grid">
+    <div *ngFor="let game of recommendedGames" class="game-card" (click)="showDetails(game.id)">
+      <a class="game" href="games/{{game.ID}}">
+        <img [src]="'assets/games/' + game.image" [alt]="game.title" class="game-image" />
+        <div class="game-info">
+          <h3 class="game-title">{{ game.title }}</h3>
+          <p class="game-price">{{ game.price.price | number }} RSD</p>
+        </div>
+      </a>
+    </div>
+  </div>
+<!-- </section> -->
+</div>

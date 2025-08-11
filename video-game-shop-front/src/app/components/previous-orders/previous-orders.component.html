@@ -55,7 +55,7 @@
                 </td>
                 <td>
                   <div *ngFor="let item of order.purchasedItems; let lastItem = last">
-                    {{item.cartItem.game.price.price}} rsd
+                    {{getOrderPrice(item)}} rsd
                     <nz-divider *ngIf="!lastItem"></nz-divider>
                   </div>
                 </td>

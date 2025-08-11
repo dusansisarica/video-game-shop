@@ -122,3 +122,13 @@ h2 {
   vertical-align: middle;
 }
 
+.title {
+  color: black;
+  transition: transform 0.3s ease;
+  display: inline-block; 
+} 
+
+.title:hover {
+  transform: scale(1.05);
+  font-weight: bold;
+}

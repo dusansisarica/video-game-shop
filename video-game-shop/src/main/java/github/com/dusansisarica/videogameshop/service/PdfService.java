@@ -76,7 +76,7 @@ public class PdfService {
         PriceDiscountDto priceDiscountDto = new PriceDiscountDto();
         priceDiscountDto.setGames(videoGameDtoMapper.fromModeltoDTOList(games));
         totalPrice = priceService.calculateTotalPrice(priceDiscountDto);
-        document.add(new Paragraph("Ukupno: " + Math.round(totalPrice * 100.0) / 100.0 + " rsd"));
+//        document.add(new Paragraph("Ukupno: " + Math.round(totalPrice * 100.0) / 100.0 + " rsd"));
 
 
         document.add(table); // Add the table to the PDF

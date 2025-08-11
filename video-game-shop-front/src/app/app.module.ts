@@ -67,6 +67,7 @@ import { AddManagerComponent } from './components/add-manager/add-manager.compon
 import { GamePriceUpdateComponent } from './components/game-price-update/game-price-update.component';
 import { MapboxService } from './services/mapbox.service';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
+import { RecommendedGamesComponent } from './components/recommended-games/recommended-games.component';
 
 registerLocaleData(en);
 
@@ -122,6 +123,7 @@ registerLocaleData(en);
     AddManagerComponent,
     GamePriceUpdateComponent,
     RecentGamesComponent,
+    RecommendedGamesComponent,
   ],
   imports: [
     BrowserModule,

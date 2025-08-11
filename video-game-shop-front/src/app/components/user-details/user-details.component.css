@@ -1,7 +1,8 @@
 /* user-profile.component.css */
 
 form {
-    max-width: 400px;
+    /* max-width: 400px; */
+    width: auto;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -45,4 +46,35 @@ form {
   button:hover {
     background-color: #555;
   }
+
+  .user-details-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: start ;
+    gap: 10px;
+  }
+
+  .address {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: start;
+    gap: 10px;
+  }
+
+  .input {
+    display: flex;
+  }
+
+  /* .profile-content {
+  padding: 20px;
+  background-color: green;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+   */
   

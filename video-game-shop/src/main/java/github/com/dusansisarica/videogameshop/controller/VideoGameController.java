@@ -4,6 +4,7 @@ import github.com.dusansisarica.videogameshop.dto.*;
 import github.com.dusansisarica.videogameshop.enums.Genre;
 import github.com.dusansisarica.videogameshop.enums.Platform;
 import github.com.dusansisarica.videogameshop.model.VideoGame;
+import github.com.dusansisarica.videogameshop.security.util.JwtTokenUtil;
 import github.com.dusansisarica.videogameshop.service.VideoGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,9 @@ public class VideoGameController {
 
     @Autowired
     private VideoGameService videoGameService;
-
+    private final JwtTokenUtil tokenUtils;
+//
+    public VideoGameController(JwtTokenUtil tokenHelper) {this.tokenUtils = tokenHelper;}
     @GetMapping()
     public ResponseEntity<VideoGamePagination> findAll(@RequestParam(defaultValue = "1") int page,
                                                        @RequestParam(defaultValue = "10") int size,
@@ -71,6 +74,12 @@ public class VideoGameController {
     @PostMapping(consumes = "application/json")
     public ResponseEntity<VideoGameDto> save(@RequestBody VideoGameDto videoGameDto, HttpServletRequest request) {
         return new ResponseEntity<>(videoGameService.save(videoGameDto), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/recommended")
+    public List<VideoGameDto> getRecommendations(@RequestBody List<Integer> recentIds, HttpServletRequest request) {
+        String email = tokenUtils.getEmailFromToken(tokenUtils.getToken(request));
+        return videoGameService.generateRecommendations(recentIds, email);
     }
 
     @PreAuthorize("hasRole('ADMIN')")

@@ -89,5 +89,8 @@ export class PreviousOrdersComponent implements OnInit {
     return false;
   }
 
+  getOrderPrice(item: any): number {
+    return item.cartItem.quantity * item.cartItem.game.price.price;
+  }
 
 }

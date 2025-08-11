@@ -102,178 +102,389 @@ INSERT INTO video_game (title, description,  release_date, deleted, image) VALUE
 INSERT INTO video_game (title, description,  release_date, deleted, image) VALUES('Bioshock Infinite', 'Akcioni FPS sa pričom u nebu.',  '26/03/2013', false, 'bioshockinfinite.jpg');
 INSERT INTO video_game (title, description,  release_date, deleted, image) VALUES('Rust', 'Survival igra sa izgradnjom baze.',  '08/02/2018', false, 'rust.png');
 
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 1, 1);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3999.99, '2025-06-01', '2025-09-01', 2, 1);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2999.50, '2025-06-01', '2025-09-01', 3, 1);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3799.00, '2025-06-01', '2025-09-01', 4, 1);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (4199.99, '2025-06-01', '2025-09-01', 5, 1);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3299.49, '2025-06-01', '2025-09-01', 6, 4);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3699.99, '2025-06-01', '2025-09-01', 7, 4);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (4099.00, '2025-06-01', '2025-09-01', 8, 5);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2899.99, '2025-06-01', '2025-09-01', 9, 6);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 10, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3199.99, '2025-06-01', '2025-09-01', 11, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3799.50, '2025-06-01', '2025-09-01', 12, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3999.00, '2025-06-01', '2025-09-01', 13, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2799.49, '2025-06-01', '2025-09-01', 14, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3599.00, '2025-06-01', '2025-09-01', 15, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3299.99, '2025-06-01', '2025-09-01', 16, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3899.99, '2025-06-01', '2025-09-01', 17, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (4099.99, '2025-06-01', '2025-09-01', 18, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2999.99, '2025-06-01', '2025-09-01', 19, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3499.49, '2025-06-01', '2025-09-01', 20, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3699.00, '2025-06-01', '2025-09-01', 21, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (4199.99, '2025-06-01', '2025-09-01', 22, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2899.50, '2025-06-01', '2025-09-01', 23, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3299.99, '2025-06-01', '2025-09-01', 24, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3799.99, '2025-06-01', '2025-09-01', 25, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3099.00, '2025-06-01', '2025-09-01', 26, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3999.99, '2025-06-01', '2025-09-01', 27, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3499.00, '2025-06-01', '2025-09-01', 28, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2899.99, '2025-06-01', '2025-09-01', 29, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3599.50, '2025-06-01', '2025-09-01', 30, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (4199.00, '2025-06-01', '2025-09-01', 31, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3299.00, '2025-06-01', '2025-09-01', 32, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3899.50, '2025-06-01', '2025-09-01', 33, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2999.49, '2025-06-01', '2025-09-01', 34, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3799.99, '2025-06-01', '2025-09-01', 35, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3499.00, '2025-06-01', '2025-09-01', 36, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (4199.99, '2025-06-01', '2025-09-01', 37, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (3099.99, '2025-06-01', '2025-09-01', 38, null);
+INSERT INTO price(price, start_date, end_date, game_id, action_id) VALUES (2899.00, '2025-06-01', '2025-09-01', 39, null);
 
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 1, 1);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 2, 1);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 3, 1);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 4, 1);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 5, 1);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 6, 4);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 7, 4);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 8, 5);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 9, 6);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 10, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 11, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 12, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 13, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 14, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 15, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 16, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 17, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 18, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 19, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 20, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 21, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 22, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 23, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 24, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 25, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 26, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 27, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 28, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 29, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 30, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 31, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 32, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 33, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 34, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 35, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 36, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 37, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 38, null);
-insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-07-01', 39, null);
-
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 1, 1);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 2, 1);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 3, 1);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 4, 1);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 5, 1);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 6, 4);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 7, 4);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 8, 5);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 9, 6);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 10, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 11, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 12, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 13, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 14, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 15, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 16, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 17, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 18, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 19, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 20, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 21, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 22, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 23, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 24, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 25, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 26, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 27, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 28, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 29, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 30, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 31, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 32, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 33, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 34, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 35, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 36, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 37, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 38, null);
+-- insert into price(price, start_date, end_date, game_id, action_id) VALUES (3499.99, '2025-06-01', '2025-09-01', 39, null);
 
 
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (1, 'ACTION');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (1, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (2, 'ACTION');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (2, 'ADVENTURE');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (2, 'PUZZLE');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (3, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (3, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (4, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (4, 'ADVENTURE');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (3, 'STRATEGY');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (4, 'FPS');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (4, 'ACTION');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (5, 'SIMULATION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (5, 'ADVENTURE');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (5, 'STRATEGY');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (6, 'TPS');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (6, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (6, 'ADVENTURE');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (7, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (7, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (8, 'ACTION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (7, 'HORROR');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (8, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (9, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (9, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (10, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (10, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (8, 'MMO');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (9, 'SPORT');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (9, 'SIMULATION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (10, 'PLATFORMER');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (10, 'PUZZLE');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (11, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (11, 'FPS');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (12, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (12, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (13, 'ACTION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (11, 'FIGHTING');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (12, 'RACING');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (12, 'SPORT');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (13, 'HORROR');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (13, 'ADVENTURE');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (14, 'RPG');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (14, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (15, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (15, 'ADVENTURE');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (15, 'MMO');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (15, 'RPG');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (16, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (16, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (17, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (16, 'TPS');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (17, 'FIGHTING');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (17, 'ACTION');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (18, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (18, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (19, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (18, 'STRATEGY');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (19, 'FPS');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (19, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (20, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (20, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (21, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (21, 'ACTION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (20, 'RACING');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (20, 'SPORT');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (21, 'HORROR');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (21, 'ADVENTURE');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (22, 'ACTION');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (22, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (23, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (23, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (24, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (24, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (23, 'SIMULATION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (23, 'STRATEGY');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (24, 'PLATFORMER');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (24, 'PUZZLE');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (25, 'FIGHTING');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (25, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (25, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (26, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (26, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (27, 'ACTION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (26, 'RACING');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (26, 'SIMULATION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (27, 'RPG');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (27, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (28, 'RPG');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (28, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (29, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (29, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (28, 'MMO');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (29, 'STRATEGY');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (29, 'SIMULATION');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (30, 'ACTION');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (30, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (31, 'ACTION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (31, 'PLATFORMER');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (31, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (32, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (32, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (33, 'ACTION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (32, 'SPORT');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (32, 'RACING');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (33, 'PUZZLE');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (33, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (34, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (34, 'HORROR');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (34, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (35, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (35, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (35, 'FIGHTING');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (35, 'SPORT');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (36, 'FPS');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (36, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (36, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (37, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (37, 'ADVENTURE');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (38, 'RPG');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (38, 'ACTION');
-INSERT INTO video_game_genres (video_game_id, genres) VALUES (39, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (37, 'RPG');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (37, 'MMO');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (38, 'SIMULATION');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (38, 'STRATEGY');
+INSERT INTO video_game_genres (video_game_id, genres) VALUES (39, 'HORROR');
 INSERT INTO video_game_genres (video_game_id, genres) VALUES (39, 'ACTION');
 
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (1, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (1, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (2, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (2, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (3, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (3, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (4, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (4, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (5, 'SIMULATION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (5, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (6, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (6, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (7, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (7, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (8, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (8, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (9, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (9, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (10, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (10, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (11, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (11, 'FPS');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (12, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (12, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (13, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (13, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (14, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (14, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (15, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (15, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (16, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (16, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (17, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (17, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (18, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (18, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (19, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (19, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (20, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (20, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (21, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (21, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (22, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (22, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (23, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (23, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (24, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (24, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (25, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (25, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (26, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (26, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (27, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (27, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (28, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (28, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (29, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (29, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (30, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (30, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (31, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (31, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (32, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (32, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (33, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (33, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (34, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (34, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (35, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (35, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (36, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (36, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (37, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (37, 'ADVENTURE');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (38, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (38, 'ACTION');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (39, 'RPG');
+-- INSERT INTO video_game_genres (video_game_id, genres) VALUES (39, 'ACTION');
 
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (1, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (1, 'PS5');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (1, 'NintendoSwitch');
 
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'PS5');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'XboxOne');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'NintendoSwitch');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'PS4');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'XboxSeriesX');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'VR');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (3, 'PS5');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (3, 'XboxSeriesX');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (3, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (4, 'PS4');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (3, 'NintendoSwitch');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (4, 'XboxOne');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (5, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (5, 'XboxSeriesX');
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (5, 'PSP');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (6, 'PS5');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (6, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (6, 'XboxSeriesS');
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (6, 'NintendoSwitch');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (7, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (7, 'PS5');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (7, 'VR');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (8, 'PC');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (8, 'PS4');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (9, 'PS5');
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (9, 'XboxSeriesX');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (10, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (11, 'NintendoSwitch');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (12, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (10, 'NintendoSwitch');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (11, 'PC');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (11, 'VR');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (12, 'XboxSeriesS');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (13, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (14, 'NintendoSwitch');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (15, 'PC');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (13, 'PS4');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (14, 'Nintendo3DS');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (15, 'XboxSeriesX');
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (15, 'VR');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (16, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (16, 'PSP');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (17, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (18, 'PS5');
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (18, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (19, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (19, 'NintendoSwitch');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (20, 'XboxSeriesS');
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (20, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (21, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (22, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (23, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (24, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (21, 'VR');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (22, 'PS5');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (22, 'PS4');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (23, 'NintendoSwitch');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (24, 'XboxOne');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (25, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (26, 'PC');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (25, 'Nintendo3DS');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (26, 'PS5');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (27, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (28, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (29, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (30, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (28, 'XboxSeriesX');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (29, 'NintendoSwitch');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (30, 'VR');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (31, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (32, 'PC');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (31, 'PSP');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (32, 'XboxSeriesS');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (33, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (34, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (35, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (36, 'PC');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (34, 'PS4');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (35, 'XboxOne');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (36, 'NintendoSwitch');
+
 INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (37, 'PC');
-INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (38, 'PC');
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (37, 'VR');
+
+INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (38, 'PS5');
+
+
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (1, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (1, 'PS5');
+--
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'PS5');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'XboxOne');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (2, 'NintendoSwitch');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (3, 'PS5');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (3, 'XboxSeriesX');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (3, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (4, 'PS4');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (5, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (5, 'XboxSeriesX');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (5, 'PSP');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (6, 'PS5');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (6, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (6, 'NintendoSwitch');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (7, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (8, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (9, 'XboxSeriesX');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (10, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (11, 'NintendoSwitch');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (12, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (13, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (14, 'NintendoSwitch');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (15, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (15, 'VR');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (16, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (17, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (18, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (19, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (20, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (21, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (22, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (23, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (24, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (25, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (26, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (27, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (28, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (29, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (30, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (31, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (32, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (33, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (34, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (35, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (36, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (37, 'PC');
+-- INSERT INTO video_game_platforms (video_game_id, platforms) VALUES (38, 'PC');
 
 
 -- Game 1, Shop 1-3

@@ -41,37 +41,12 @@ export class UserDetailsComponent implements OnInit {
     this.getLoggedInUser();
     console.log(this.user);
 
-    // if (this.user) {
-    //   this.profileForm = this.fb.group({
-    //     name: [''],      // Can be empty
-    //     surname: [''],   // Can be empty
-    //     address: [''],   // Can be empty
-    //     city: [''],      // Can be empty
-    //     country: ['']    // Can be empty
-    //   });
-
-    //   this.profileForm.patchValue({
-    //     name: this.user.name,
-    //     surname: this.user.surname,
-    //     address: this.user.address.address,
-    //     city: this.user.address.city,
-    //     country: this.user.address.country
-    //   });
-    // }
-
   }
 
   getLoggedInUser() {
     this.userService.getLoggedInUser().subscribe(data => {
       this.user = data;
       console.log(this.user.name);
-      // this.profileForm = this.fb.group({
-      //   name: [''],
-      //   surname: [''],
-      //   address: [''],
-      //   city: [''],
-      //   country: ['']
-      // });
 
       this.profileForm.patchValue({
         name: this.user.name,
@@ -98,15 +73,16 @@ export class UserDetailsComponent implements OnInit {
             name: this.profileForm.get('country')?.value,
           },
           name: this.profileForm.get('city')?.value,
-          longitude: this.lon,
-          latitude: this.lat
-        }
+        },
+        longitude: this.lon,
+        latitude: this.lat
       },
       jwt: ""
     }
     this.userService.changeUserDetails(body).subscribe();
     //  this.getLoggedInUser();
   }
+  
   onCityInput(event: any) {
     const query = event.target.value;
     if (query.length > 2) {

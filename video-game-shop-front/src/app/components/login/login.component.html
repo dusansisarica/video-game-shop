@@ -1,20 +1,25 @@
 <div class="login-container">
   <mat-card class="login-card">
     <div class="spaced-div">
-      <mat-card-header>
-        <mat-card-title>Uloguj se</mat-card-title>
-      </mat-card-header>
+      <!-- <mat-card-header>
+        <mat-card-title class="header">Uloguj se</mat-card-title>
+      </mat-card-header> -->
+      <h2 class="header">Uloguj se</h2>
     </div>
     <mat-card-content class="spaced-div">
       <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
-        <mat-label>Email</mat-label>
-        <mat-form-field class="form-field">
-          <input matInput formControlName="email">
-        </mat-form-field>
-        <mat-label>Lozinka</mat-label>
-        <mat-form-field class="form-field">
-          <input matInput type="password" formControlName="password">
-        </mat-form-field>
+        <div class="email">
+          <mat-label>Email</mat-label>
+          <div>
+            <input class="form-field" matInput formControlName="email">
+          </div>
+        </div>
+        <div class="password">
+          <mat-label>Lozinka</mat-label>
+          <div>
+            <input class="form-field" matInput type="password" formControlName="password">
+          </div>
+        </div>
         <button mat-raised-button color="primary" class="login-button">Uloguj se</button>
       </form>
     </mat-card-content>

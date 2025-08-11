@@ -73,6 +73,8 @@ export class ShopItemsComponent implements OnInit {
 
   toggleSortMenu() {
     this.sortMenuOpen = !this.sortMenuOpen;
+    this.platformMenuOpen = false;  // Zatvara meni za platforme ako je otvoren
+    this.genreMenuOpen = false;  // Zatvara meni za žanrove ako
   }
 
 
@@ -125,10 +127,14 @@ export class ShopItemsComponent implements OnInit {
 
   togglePlatformMenu(): void {
     this.platformMenuOpen = !this.platformMenuOpen;  // Menja stanje menija za platforme
+    this.genreMenuOpen = false;  // Zatvara meni za žanrove ako je otvoren
+    this.sortMenuOpen = false;  // Zatvara meni za sortiranje ako je
   }
 
   toggleGenreMenu(): void {
     this.genreMenuOpen = !this.genreMenuOpen;  // Menja stanje menija za žanrove
+    this.platformMenuOpen = false;  // Zatvara meni za platforme ako je otvoren
+    this.sortMenuOpen = false;  // Zatvara meni za sortiranje ako je
   }
 
 

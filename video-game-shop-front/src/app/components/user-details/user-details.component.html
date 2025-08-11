@@ -1,17 +1,25 @@
+<div class="profile-content">
 <form nz-form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="user-details-form" nzLayout="horizontal">
+  <div class="name">
   <nz-form-item>
+    <div class="input">
     <nz-form-label [nzSpan]="6" nzFor="name">Ime</nz-form-label>
     <nz-form-control [nzSpan]="18">
       <input nz-input id="name" formControlName="name">
     </nz-form-control>
+    </div>
   </nz-form-item>
+  
 
   <nz-form-item>
+    <div class="input">
     <nz-form-label [nzSpan]="6" nzFor="surname">Prezime</nz-form-label>
     <nz-form-control [nzSpan]="18">
       <input nz-input id="surname" formControlName="surname">
     </nz-form-control>
+    </div>
   </nz-form-item>
+  </div>
 
   <!-- <nz-form-item>
     <nz-form-label [nzSpan]="6" nzFor="address">Adresa</nz-form-label>
@@ -26,7 +34,9 @@
       <input nz-input id="city" formControlName="city">
     </nz-form-control>
   </nz-form-item> -->
+  <div class="address">
   <nz-form-item>
+    <div class="input">
     <nz-form-label [nzSpan]="6" nzFor="city">Grad</nz-form-label>
     <nz-form-control [nzSpan]="18">
       <input nz-input id="city" formControlName="city" (input)="onCityInput($event)" placeholder="Unesite grad">
@@ -36,9 +46,11 @@
         </li>
       </ul>
     </nz-form-control>
+    </div>
   </nz-form-item>
 
   <nz-form-item>
+    <div class="input">
     <nz-form-label [nzSpan]="6" nzFor="address">Ulica</nz-form-label>
     <nz-form-control [nzSpan]="18">
       <input nz-input id="address" formControlName="address" (input)="onStreetInput($event)"
@@ -49,17 +61,22 @@
         </li>
       </ul>
     </nz-form-control>
+    </div>
   </nz-form-item>
 
 
   <nz-form-item>
+    <div class="input">
     <nz-form-label [nzSpan]="6" nzFor="country">Država</nz-form-label>
     <nz-form-control [nzSpan]="18">
       <input nz-input id="country" formControlName="country">
     </nz-form-control>
+    </div>
   </nz-form-item>
+  </div>
 
   <div class="button-container" style="text-align: center; margin-top: 20px;">
     <a class="btn btn-success" (click)="onSubmit()">Sačuvaj promene</a>
   </div>
 </form>
+</div>

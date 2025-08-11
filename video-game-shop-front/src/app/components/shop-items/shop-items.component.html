@@ -8,7 +8,7 @@
                     <a (click)="togglePlatformMenu()"
                         class="collapse d-flex justify-content-between h3 text-decoration-none">
                         Platform
-                        <i class=" fa fa-fw fa-chevron-down " [class.fa-chevron-down]="platformMenuOpen"
+                        <i class=" fa fa-fw fa-chevron-down " [class.fa-chevron-up]="platformMenuOpen"
                             [class.fa-chevron-down]="!platformMenuOpen"></i>
                     </a>
                     <ul *ngIf="platformMenuOpen" class=" list-unstyled pl-3">
@@ -21,7 +21,7 @@
                     <a (click)="toggleGenreMenu()"
                         class="collapse d-flex justify-content-between h3 text-decoration-none">
                         Žanrovi
-                        <i class=" pull-right fa fa-fw mt-1 fa-chevron-down" [class.fa-chevron-down]="genreMenuOpen"
+                        <i class=" pull-right fa fa-fw mt-1 fa-chevron-down" [class.fa-chevron-up]="genreMenuOpen"
                             [class.fa-chevron-down]="!genreMenuOpen"></i>
                     </a>
                     <ul *ngIf="genreMenuOpen" id="collapseTwo" class="list-unstyled pl-3">
@@ -35,7 +35,7 @@
                     <a (click)="toggleSortMenu()"
                         class="collapse d-flex justify-content-between h3 text-decoration-none">
                         Sortiraj
-                        <i class="pull-right fa fa-fw mt-1" [class.fa-chevron-down]="sortMenuOpen"
+                        <i class="pull-right fa fa-fw mt-1" [class.fa-chevron-up]="sortMenuOpen"
                             [class.fa-chevron-down]="!sortMenuOpen"></i>
                     </a>
                     <ul *ngIf="sortMenuOpen" class="list-unstyled pl-3">

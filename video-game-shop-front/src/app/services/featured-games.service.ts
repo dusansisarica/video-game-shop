@@ -91,5 +91,9 @@ export class FeaturedGamesService {
     return this.http.get(this.baseUrl + `api/games/quantity/${id}`);
   }
 
+  public getRecommendedGames(recentIds: number[]): Observable<any[]> {
+    return this.http.post<any[]>(this.baseUrl + 'api/games/recommended', recentIds);
+  }
+
 
 }
